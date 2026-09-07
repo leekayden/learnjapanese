@@ -1,0 +1,322 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Better Auth models (user / session / account / verification)
+// ---------------------------------------------------------------------------
+
+model User {
+  id            String           @id
+  name          String
+  email         String           @unique
+  emailVerified Boolean          @default(false)
+  image         String?
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+  sessions      Session[]
+  accounts      Account[]
+  settings      UserSettings?
+  progress      LessonProgress[]
+  examAttempts  ExamAttempt[]
+  srsCards      SrsCard[]
+  xpEvents      XpEvent[]
+  streak        Streak?
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ipAddress String?
+  userAgent String?
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  userId                String
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+}
+
+model Verification {
+  id         String   @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// ---------------------------------------------------------------------------
+// App: user preferences & progress
+// ---------------------------------------------------------------------------
+
+enum ScriptMode {
+  FURIGANA
+  HIRAGANA
+  ROMAJI
+}
+
+enum FuriganaMode {
+  ALWAYS
+  HOVER
+  OFF
+}
+
+model UserSettings {
+  id           String       @id @default(cuid())
+  userId       String       @unique
+  user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  scriptMode   ScriptMode   @default(FURIGANA)
+  furiganaMode FuriganaMode @default(ALWAYS)
+  audioOn      Boolean      @default(true)
+  dailyGoalXp  Int          @default(20)
+  freeNav      Boolean      @default(false)
+}
+
+enum ProgressStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+model LessonProgress {
+  id          String         @id @default(cuid())
+  userId      String
+  user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lessonId    String
+  lesson      Lesson         @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  status      ProgressStatus @default(NOT_STARTED)
+  bestScore   Float          @default(0)
+  attempts    Int            @default(0)
+  completedAt DateTime?
+  updatedAt   DateTime       @updatedAt
+
+  @@unique([userId, lessonId])
+}
+
+model ExamAttempt {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  unitId    String?
+  unit      Unit?    @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  levelExam Level?
+  score     Float
+  responses Json
+  passed    Boolean
+  createdAt DateTime @default(now())
+
+  @@index([userId, unitId])
+  @@index([userId, levelExam])
+}
+
+enum CardType {
+  VOCAB_RECOG
+  VOCAB_RECALL
+  KANJI_MEANING
+  KANJI_READING
+  GRAMMAR_CLOZE
+}
+
+model SrsCard {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cardType   CardType
+  refId      String
+  due        DateTime @default(now())
+  stability  Float    @default(0)
+  difficulty Float    @default(0)
+  reps       Int      @default(0)
+  lapses     Int      @default(0)
+  lastGrade  Int?
+  suspended  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([userId, cardType, refId])
+  @@index([userId, due])
+}
+
+model Streak {
+  userId        String  @id
+  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  current       Int     @default(0)
+  longest       Int     @default(0)
+  lastStudyDate String?
+}
+
+model XpEvent {
+  id        BigInt   @id @default(autoincrement())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount    Int
+  source    String
+  day       String
+  createdAt DateTime @default(now())
+
+  @@index([userId, day])
+}
+
+// ---------------------------------------------------------------------------
+// Curriculum
+// ---------------------------------------------------------------------------
+
+enum Level {
+  N5
+  N4
+  N3
+  N2
+  N1
+}
+
+model Unit {
+  id          String       @id
+  level       Level
+  order       Int
+  title       String
+  titleJp     String
+  description String
+  lessons     Lesson[]
+  vocab       UnitVocab[]
+  kanji       Kanji[]
+  examItems   QuizItem[]
+  attempts    ExamAttempt[]
+
+  @@unique([level, order])
+}
+
+model Lesson {
+  id           String           @id
+  unitId       String
+  unit         Unit             @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  order        Int
+  title        String
+  titleJp      String
+  grammarLabel String
+  summary      String
+  body         Json
+  examples     Example[]
+  quizItems    QuizItem[]
+  progress     LessonProgress[]
+
+  @@unique([unitId, order])
+}
+
+model Example {
+  id       Int     @id @default(autoincrement())
+  lessonId String
+  lesson   Lesson  @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  order    Int
+  jp       String
+  kana     String
+  romaji   String
+  en       String
+  note     String?
+  segments Json?
+
+  @@index([lessonId])
+}
+
+enum QuizScope {
+  LESSON_PRACTICE
+  VOCAB_PRACTICE
+  UNIT_EXAM
+}
+
+model QuizItem {
+  id       String     @id @default(cuid())
+  scope    QuizScope
+  lessonId String?
+  lesson   Lesson?    @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  unitId   String?
+  unit     Unit?      @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  refId    String?
+  order    Int
+  type     String
+  payload  Json
+  points   Int        @default(1)
+  tags     Json?
+
+  @@index([lessonId, scope, order])
+  @@index([unitId, scope, order])
+}
+
+model UnitVocab {
+  id     Int     @id @default(autoincrement())
+  unitId String
+  unit   Unit    @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  wordId String
+  word   Word    @relation(fields: [wordId], references: [id])
+  order  Int
+  note   String?
+
+  @@unique([unitId, wordId])
+  @@index([unitId, order])
+}
+
+// ---------------------------------------------------------------------------
+// Dictionary (imported datasets)
+// ---------------------------------------------------------------------------
+
+model Word {
+  id         String      @id
+  common     Boolean     @default(false)
+  jlptLevel  Int?
+  kanjiForms Json
+  kanaForms  Json
+  romaji     String
+  senses     Json
+  searchText String      @db.Text
+  unitVocab  UnitVocab[]
+
+  @@index([jlptLevel])
+  @@index([common])
+  @@index([romaji])
+}
+
+model Kanji {
+  char        String  @id
+  level       Level?
+  grade       Int?
+  strokeCount Int
+  onyomi      Json
+  kunyomi     Json
+  meanings    Json
+  strokeData  Json?
+  unitId      String?
+  unit        Unit?   @relation(fields: [unitId], references: [id])
+  jlptOld     Int?
+  mnemonic    String?
+
+  @@index([level])
+}
+
+model Sentence {
+  id Int    @id
+  jp String @db.Text
+  en String? @db.Text
+
+  @@index([jp(length: 191)])
+}
