@@ -14,7 +14,7 @@ const PROTECTED_PREFIXES = [
 
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl
-  const hasSession = getSessionCookie(request)
+  const hasSession = getSessionCookie(request, { cookiePrefix: "learnjapanese" })
 
   if (!hasSession && PROTECTED_PREFIXES.some((p) => pathname.startsWith(p))) {
     const loginUrl = new URL("/login", request.url)

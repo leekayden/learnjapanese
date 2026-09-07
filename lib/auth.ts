@@ -25,6 +25,8 @@ export const auth = betterAuth({
   },
   trustedOrigins: [
     process.env.BETTER_AUTH_URL ?? "http://localhost:3000",
+    "http://localhost:*",
+    "http://127.0.0.1:*",
   ],
   advanced: {
     // Isolate cookies from other better-auth apps on localhost (e.g. quiz-renderer).

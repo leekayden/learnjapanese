@@ -1,8 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import Link from "next/link"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useSearchParams } from "next/navigation"
 import { toast } from "sonner"
 import { Loader2 } from "lucide-react"
 
@@ -19,10 +19,17 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { signIn } from "@/lib/auth-client"
 
-export default function LoginPage() {
-  const router = useRouter()
+function LoginForm() {
   const searchParams = useSearchParams()
-  const callbackUrl = searchParams.get("callbackUrl") ?? "/dashboard"
+  const rawCallback = searchParams.get("callbackUrl")
+  const callbackUrl =
+    rawCallback &&
+    rawCallback.startsWith("/") &&
+    !rawCallback.startsWith("/login") &&
+    !rawCallback.startsWith("/signup")
+      ? rawCallback
+      : "/dashboard"
+
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
@@ -30,14 +37,18 @@ export default function LoginPage() {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()
     setLoading(true)
-    const { error } = await signIn.email({ email, password, callbackURL: callbackUrl })
-    setLoading(false)
-    if (error) {
-      toast.error(error.message ?? "Could not sign in")
-      return
+    try {
+      const { error } = await signIn.email({ email, password })
+      if (error) {
+        setLoading(false)
+        toast.error(error.message ?? "Could not sign in")
+        return
+      }
+      window.location.href = callbackUrl
+    } catch (err: unknown) {
+      setLoading(false)
+      toast.error(err instanceof Error ? err.message : "Could not sign in")
     }
-    router.push(callbackUrl)
-    router.refresh()
   }
 
   return (
@@ -84,5 +95,13 @@ export default function LoginPage() {
         </CardFooter>
       </form>
     </Card>
+  )
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginForm />
+    </Suspense>
   )
 }

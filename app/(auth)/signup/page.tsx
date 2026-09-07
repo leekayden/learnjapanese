@@ -33,14 +33,18 @@ export default function SignupPage() {
       return
     }
     setLoading(true)
-    const { error } = await signUp.email({ name, email, password, callbackURL: "/dashboard" })
-    setLoading(false)
-    if (error) {
-      toast.error(error.message ?? "Could not create account")
-      return
+    try {
+      const { error } = await signUp.email({ name, email, password })
+      if (error) {
+        setLoading(false)
+        toast.error(error.message ?? "Could not create account")
+        return
+      }
+      window.location.href = "/dashboard"
+    } catch (err: unknown) {
+      setLoading(false)
+      toast.error(err instanceof Error ? err.message : "Could not create account")
     }
-    router.push("/dashboard")
-    router.refresh()
   }
 
   return (
