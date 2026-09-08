@@ -5,7 +5,9 @@
  */
 export type FuriganaSegment = { base: string; reading?: string }
 
-const KANJI_RE = /[\u3400-\u9fbf\uf900-\ufaff\u{20000}-\u{323af}]/u
+// Includes the iteration mark 々 (U+3005, reads as part of the repeated
+// kanji's reading) and 〆/ヶ-type marks handled by exact kana matching.
+const KANJI_RE = /[\u3400-\u9fbf\uf900-\ufaff\u3005\u3007\u{20000}-\u{323af}]/u
 
 function isKanji(ch: string): boolean {
   return KANJI_RE.test(ch)

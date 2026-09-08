@@ -379,6 +379,22 @@ async function main() {
     console.log(`Seeded ${getUnitId(unit)} — ${unit.lessons.length} lessons, ${entries.length} vocab, ${unit.kanji.length} kanji, exam ${exam.length}`)
   }
 
+  // Clean up stale SRS cards whose references no longer exist
+  // (e.g. quiz items recreated with new IDs after a reseed).
+  const grammarIds = new Set((await prisma.quizItem.findMany({ select: { id: true } })).map((q) => q.id))
+  const wordIds = new Set((await prisma.word.findMany({ select: { id: true } })).map((w) => w.id))
+  const kanjiChars = new Set((await prisma.kanji.findMany({ select: { char: true } })).map((k) => k.char))
+  const staleCards = await prisma.srsCard.findMany({ select: { id: true, cardType: true, refId: true } })
+  const stale = staleCards.filter((c) => {
+    if (c.cardType === "GRAMMAR_CLOZE") return !grammarIds.has(c.refId)
+    if (c.cardType === "VOCAB_RECOG" || c.cardType === "VOCAB_RECALL") return !wordIds.has(c.refId)
+    return !kanjiChars.has(c.refId)
+  })
+  if (stale.length) {
+    await prisma.srsCard.deleteMany({ where: { id: { in: stale.map((c) => c.id) } } })
+    console.log(`Removed ${stale.length} stale SRS cards`)
+  }
+
   console.log("Counts:", counts)
 }
 

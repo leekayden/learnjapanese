@@ -305,6 +305,7 @@ model Kanji {
   kunyomi     Json
   meanings    Json
   strokeData  Json?
+  radicals    Json?
   unitId      String?
   unit        Unit?   @relation(fields: [unitId], references: [id])
   jlptOld     Int?

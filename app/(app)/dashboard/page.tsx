@@ -15,6 +15,9 @@ export default async function DashboardPage() {
   const user = await getCurrentUser()
   if (!user) return null
 
+  const settings = await prisma.userSettings.findUnique({ where: { userId: user.id } })
+  const dailyGoal = settings?.dailyGoalXp ?? 20
+
   const [dueCount, streak, xpToday, firstUnit, nextLesson, lastLevelExam] = await Promise.all([
     prisma.srsCard.count({ where: { userId: user.id, due: { lte: new Date() }, suspended: false } }),
     prisma.streak.findUnique({ where: { userId: user.id } }),
@@ -97,14 +100,14 @@ export default async function DashboardPage() {
         <CardHeader>
           <CardTitle>Today's goal</CardTitle>
           <CardDescription>
-            {xpToday} of {20} XP — small steps count.
+            {xpToday} of {dailyGoal} XP — small steps count.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
             <div
               className="h-full rounded-full bg-primary transition-all"
-              style={{ width: `${Math.min(100, (xpToday / 20) * 100)}%` }}
+              style={{ width: `${Math.min(100, (xpToday / Math.max(1, dailyGoal)) * 100)}%` }}
             />
           </div>
         </CardContent>

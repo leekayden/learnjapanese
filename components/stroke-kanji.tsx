@@ -14,19 +14,18 @@ export function StrokeKanji({ data, size = 220 }: { data: StrokeData; size?: num
   const total = data.strokes.length
 
   useEffect(() => {
-    if (playing) {
-      timer.current = setInterval(() => {
-        setStep((s) => {
-          if (s >= total) {
-            setPlaying(false)
-            return s
-          }
-          return s + 1
-        })
-      }, 450)
-      return () => {
-        if (timer.current) clearInterval(timer.current)
-      }
+    if (!playing) return
+    timer.current = setInterval(() => {
+      setStep((s) => {
+        if (s >= total) {
+          setPlaying(false)
+          return s
+        }
+        return s + 1
+      })
+    }, 450)
+    return () => {
+      if (timer.current) clearInterval(timer.current)
     }
   }, [playing, total])
 

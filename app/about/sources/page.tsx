@@ -6,6 +6,9 @@ export default function SourcesPage() {
   return (
     <div className="mx-auto max-w-2xl space-y-4">
       <h1 className="text-2xl font-bold">Sources &amp; licences</h1>
+      <p className="text-sm text-muted-foreground">
+        Many thanks to all the people involved in the projects below.
+      </p>
       <Card>
         <CardHeader>
           <CardTitle>JMdict / KANJIDIC (EDRDG)</CardTitle>
@@ -25,14 +28,24 @@ export default function SourcesPage() {
       </Card>
       <Card>
         <CardHeader>
-          <CardTitle>Example sentences — Tatoeba</CardTitle>
+          <CardTitle>Example sentences — Tatoeba &amp; Tanaka Corpus</CardTitle>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground">
           Example sentences come from the Tatoeba project (
           <a href="https://tatoeba.org" className="underline">
             tatoeba.org
           </a>
-          ), licensed under CC BY 2.0 FR.
+          ) and the Tanaka Corpus, licensed under CC BY 2.0 FR.
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Radical decomposition — Kradfile / Kradfile-u</CardTitle>
+        </CardHeader>
+        <CardContent className="text-sm text-muted-foreground">
+          Kanji search by radicals is based on the Kradfile and Kradfile-u files containing
+          radical decomposition of 13,108 Japanese characters, distributed by EDRDG under the
+          same group licence.
         </CardContent>
       </Card>
       <Card>
