@@ -61,7 +61,7 @@ export function WordEntry({
         {word.common && <Badge variant="secondary">common</Badge>}
         {word.jlptLevel && <Badge variant="outline">N{word.jlptLevel}</Badge>}
       </div>
-      <div onClick={(e) => { e.stopPropagation(); e.preventDefault(); }}><TtsButton text={kana || display} className="mt-1" /></div>
+      <TtsButton text={kana || display} className="mt-1" />
     </div>
   )
 

@@ -5,7 +5,10 @@ import { Volume2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export function TtsButton({ text, className }: { text: string; className?: string }) {
-  function speak() {
+  function speak(e: React.MouseEvent) {
+    // Prevent the parent link/card from navigating
+    e.stopPropagation()
+    e.preventDefault()
     if (typeof window === "undefined" || !window.speechSynthesis) return
     window.speechSynthesis.cancel()
     const utterance = new SpeechSynthesisUtterance(text)
