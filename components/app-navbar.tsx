@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { toast } from "sonner"
 import { BookOpen, GraduationCap, Library, ListChecks, LogOut, Package, Settings, Type, User } from "lucide-react"
 
-import { Jp, ScriptModeToggle } from "@/components/jp"
+import { Jp } from "@/components/jp"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
@@ -62,7 +62,6 @@ export function AppNavbar({ userName, userEmail }: { userName: string; userEmail
         </nav>
 
         <div className="ml-auto flex items-center gap-2">
-          <ScriptModeToggle />
           <DropdownMenu>
             <DropdownMenuTrigger
               render={<Button variant="ghost" size="icon" className="rounded-full" />}

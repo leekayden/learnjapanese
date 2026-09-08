@@ -154,7 +154,7 @@ export function QuizPlayer({
             {idx + 1} / {questions.length}
           </span>
         </div>
-        <Progress value={((idx + (checked ? 1 : 0)) / questions.length) * 100} />
+        <Progress value={(idx / questions.length) * 100} />
       </CardHeader>
 
       <CardContent className="space-y-4">

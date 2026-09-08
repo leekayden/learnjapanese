@@ -8,6 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { prisma } from "@/lib/db"
 import type { LessonBody } from "@/content/types"
+import { getSidebarData } from "@/lib/learn-sidebar"
+import { LearnShell } from "@/components/learn-shell"
 
 export const metadata = { title: "Lesson" }
 
@@ -22,6 +24,11 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
   })
   if (!lesson) notFound()
 
+  const sidebar = await getSidebarData(lesson.unit.level, {
+    unitId: lesson.unit.id,
+    lessonId: lesson.id,
+  })
+
   const body = lesson.body as LessonBody
   const idx = lesson.order
   const nextLesson = await prisma.lesson.findFirst({
@@ -29,7 +36,10 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
     select: { id: true },
   })
 
+  if (!sidebar) notFound()
+
   return (
+    <LearnShell sidebar={sidebar}>
     <div className="mx-auto max-w-3xl space-y-6">
       <div>
         <p className="text-sm text-muted-foreground">
@@ -137,5 +147,6 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
         )}
       </div>
     </div>
+    </LearnShell>
   )
 }

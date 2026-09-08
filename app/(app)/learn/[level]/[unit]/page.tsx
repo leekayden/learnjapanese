@@ -12,6 +12,8 @@ import { getCurrentUser } from "@/lib/session"
 import { prisma } from "@/lib/db"
 import { hydrate } from "@/lib/dictionary"
 import type { Level } from "@/content/types"
+import { getSidebarData } from "@/lib/learn-sidebar"
+import { LearnShell } from "@/components/learn-shell"
 
 export const metadata = { title: "Unit" }
 
@@ -29,13 +31,17 @@ export default async function UnitPage({ params }: { params: Promise<{ level: st
 
   const user = await getCurrentUser()
   const overview = await getLevelOverview(unit.level, user?.id ?? null)
+  const sidebar = await getSidebarData(unit.level, { unitId: unit.id })
   const passed = overview.passedUnits.has(unit.id)
   const [words] = await Promise.all([hydrate(unit.vocab.map((v) => v.wordId))])
   const wordById = new Map(words.map((w) => [w.id, w]))
 
   const levelLc = unit.level.toLowerCase()
 
+  if (!sidebar) notFound()
+
   return (
+    <LearnShell sidebar={sidebar}>
     <div className="space-y-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
@@ -115,5 +121,6 @@ export default async function UnitPage({ params }: { params: Promise<{ level: st
         </Button>
       </div>
     </div>
+    </LearnShell>
   )
 }

@@ -58,10 +58,19 @@ export type SearchOptions = {
   perPage?: number
 }
 
+/**
+ * Determine if the query is primarily Japanese (kanji/kana) or English/romaji.
+ */
+function isJapaneseQuery(q: string): boolean {
+  return /[\u3000-\u30ff\u3400-\u9fbf\uf900-\ufaff]/.test(q)
+}
+
 export async function searchWords(q: string, opts: SearchOptions = {}) {
   const perPage = opts.perPage ?? 20
   const page = Math.max(1, opts.page ?? 1)
   const offset = (page - 1) * perPage
+  const trimmed = q.trim()
+  if (!trimmed) return []
 
   const clauses = []
   const params: unknown[] = []
@@ -76,17 +85,44 @@ export async function searchWords(q: string, opts: SearchOptions = {}) {
   const useFt = await hasFulltextIndex()
 
   if (useFt) {
+    if (isJapaneseQuery(trimmed)) {
+      // Japanese query: search kanji/kana forms with LIKE for precision
+      const like = `%${trimmed}%`
+      const rows = await prisma.$queryRawUnsafe<{ id: string }[]>(
+        `SELECT id FROM Word
+         WHERE (searchText LIKE ? OR searchText LIKE ?) ${where}
+         ORDER BY common DESC, CHAR_LENGTH(id) ASC
+         LIMIT ? OFFSET ?`,
+        `${like}`, `%${trimmed.toLowerCase()}%`, perPage, offset,
+      )
+      return hydrate(rows.map((r) => r.id))
+    }
+
+    // English/romaji query: use fulltext BOOLEAN MODE for precise word matching
+    // Build boolean query: require each word, allow prefix matching
+    const words = trimmed.split(/\s+/).filter((w) => w.length >= 2)
+    const boolQuery = words.map((w) => `+${w}*`).join(" ")
+
+    if (!boolQuery) return []
+
+    // Score: prioritize matches in the FIRST gloss (i.e. shortest sense position)
+    // by also checking the first 200 chars of searchText
     const rows = await prisma.$queryRawUnsafe<{ id: string }[]>(
-      `SELECT id, MATCH(searchText) AGAINST (? IN NATURAL LANGUAGE MODE) score
-       FROM Word WHERE MATCH(searchText) AGAINST (? IN NATURAL LANGUAGE MODE) ${where}
-       ORDER BY score DESC, common DESC, CHAR_LENGTH(id) ASC
+      `SELECT id,
+              MATCH(searchText) AGAINST (? IN BOOLEAN MODE) score,
+              CASE WHEN LOWER(SUBSTRING(searchText, 1, 300)) LIKE ? THEN 2 ELSE 0 END AS early_bonus,
+              common
+       FROM Word
+       WHERE MATCH(searchText) AGAINST (? IN BOOLEAN MODE) ${where}
+       ORDER BY early_bonus DESC, score DESC, common DESC
        LIMIT ? OFFSET ?`,
-      q, q, perPage, offset,
+      boolQuery, `%${trimmed.toLowerCase()}%`, boolQuery, perPage, offset,
     )
     return hydrate(rows.map((r) => r.id))
   }
 
-  const like = `%${q}%`
+  // Fallback: LIKE search
+  const like = `%${trimmed.toLowerCase()}%`
   const rows = await prisma.$queryRawUnsafe<{ id: string }[]>(
     `SELECT id FROM Word WHERE searchText LIKE ? ${where} ORDER BY common DESC LIMIT ? OFFSET ?`,
     like, perPage, offset,
