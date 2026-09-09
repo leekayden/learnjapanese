@@ -3,8 +3,8 @@ import type { AuthoredUnit } from "../../types"
 export const u10: AuthoredUnit = {
   level: "N3", order: 10, title: "Risky business", titleJp: "きけんせいの ひょうげん",
   description: "Formal possibility and impossibility: 〜かねない (might well), 〜かねる (cannot quite), 〜恐れがある (there is a risk that).",
-  vocab: ["事故|じこ", "危険|きけん", "影響|えいきょう", "問題|もんだい", "対応|たいおう", "承諾|しょうだく", "賛成|さんせい", "状況|じょうきょう", "防ぐ|ふせぐ", "起きる|おきる", "晚|ばん", "遅刻|ちこく", "遅れる|おくれる", "確認|かくにん", "結果|けっか", "判断|はんだん"],
-  kanji: ["肯", "否", "承諾", "恐", "危険", "事故", "判断", "確認"],
+  vocab: ["事故|じこ", "危険|きけん", "影響|えいきょう", "問題|もんだい", "対応|たいおう", "承諾|しょうだく", "賛成|さんせい", "状況|じょうきょう", "防ぐ|ふせぐ", "起きる|おきる", "晩|ばん", "遅刻|ちこく", "遅れる|おくれる", "確認|かくにん", "結果|けっか", "判断|はんだん"],
+  kanji: ["肯", "否", "承", "恐", "危", "険", "故", "断", "確"],
   exam: [
     { kind: "mcq", text: "「このままでは事故が起きかねない。」 means…", options: ["An accident won't happen.", "An accident might well happen.", "An accident has already happened.", "We can prevent accidents."], answer: 1 },
   ],

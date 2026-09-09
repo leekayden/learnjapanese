@@ -1,0 +1,80 @@
+import type { AuthoredUnit } from "../../types"
+
+export const u13: AuthoredUnit = {
+  level: "N3", order: 13, title: "The way things are", titleJp: "もの・こと の ぶんぽう",
+  description: "もの/こと patterns: 〜ものだ (natural tendency), 〜ものがある (something about X), 〜わけだ (it follows that).",
+  vocab: ["習慣|しゅうかん", "自然|しぜん", "人間|にんげん", "感情|かんじょう", "理由|りゆう", "説明|せつめい", "納得|なっとく", "感動|かんどう", "正直|しょうじき", "特別|とくべつ", "年|とし", "老人|ろうじん", "季節|きせつ", "春|はる", "桜|さくら", "美しい|うつくしい"],
+  kanji: ["慣", "説", "納", "感", "動", "特", "別", "桜"],
+  exam: [
+    { kind: "mcq", text: "「年を取ると、忘れっぽくなるものだ。」 means…", options: ["You must forget things when old.", "It's natural to become forgetful with age.", "Old people never forget.", "I forgot because I'm old."], answer: 1 },
+    { kind: "mcq", text: "「この曲には何か感動させるものがある。」 — ものある means…", options: ["Something is missing", "There's something (moving) about it", "It's a thing", "It has an object"], answer: 1 },
+  ],
+  lessons: [
+    { slug: "n3-u13-l01", title: "It's only natural: 〜ものだ", titleJp: "〜ものだ", grammarLabel: "〜ものだ",
+      summary: "ものだ = natural truth/common tendency: 人は年を取ると忘れっぽくなるものだ.",
+      body: { meaning: "Plain + ものだ = it's NATURAL/common for people to X — a general truth or gentle advice: 人間は忘れるものだ (people forget — that's how it is).", formation: [{ pattern: "Verb plain ＋ ものだ", note: "忘れるものだ people (naturally) forget" }, { pattern: "Verb ない ＋ ものだ", note: "驚かないものだ one shouldn't be surprised" }, { pattern: "〜たいものだ", note: "一度は行ってみたいものだ" }], usage: ["General truths about life and human nature.", "〜たいものだ = I really would like to (wistful).", "Common in proverbs and advice."], pitfalls: ["ものだ for general truth; わけだ for logical conclusion — different.", " past tense ものだった = used to (nostalgia): 子供の頃はよく遊んだものだ."], related: ["〜わけだ (this unit)", "〜ものがある"] },
+      examples: [
+        { jp: "人間は誰でも失敗するものだ。", kana: "にんげんはだれでもしっぱいするものだ。", en: "Everyone fails — it's only human." },
+        { jp: "年を取ると、忘れっぽくなるものだ。", kana: "としをとると、わすれっぽくなるものだ。", en: "It's natural to become forgetful with age." },
+        { jp: "一度は京都を訪れてみたいものだ。", kana: "いちどはきょうとをおとずれてみたいものだ。", en: "I'd really like to visit Kyoto at least once." },
+      ],
+      practice: [
+        { kind: "blank", text: "人間は誰でも失敗する___。(it's only natural)", blanks: ["ものだ"] },
+        { kind: "mcq", text: "ものだ expresses…", options: ["obligation", "natural tendency/general truth", "condition", "past habit only"], answer: 1 },
+        { kind: "tf", text: "子供の頃はよく遊んだものだ means 'I used to play a lot as a child' (nostalgia).", answer: true },
+      ],
+    },
+    { slug: "n3-u13-l02", title: "Something about it: 〜ものがある", titleJp: "〜ものがある", grammarLabel: "〜ものがある",
+      summary: "ものがある = there's something (striking) about X: この絵には何か心を打つものがある.",
+      body: { meaning: "Plain + ものがある = THERE'S SOMETHING ABOUT X (that strikes me) — emotional impression: 彼の話には聞かせるものがある (there's something compelling about his talk).", formation: [{ pattern: "Verb plain ＋ ものがある", note: "感動させるものがある" }, { pattern: "い-adj ＋ ものがある", note: "嬉しいものがある" }], usage: ["Expresses genuine emotion or admiration.", "Always about things/situations — もの = 'something'."], pitfalls: ["Usually with a modifier: 何か〜ものがある.", "Not for concrete objects — it's an impression."], related: ["〜ものだ", "〜ことだ"] },
+      examples: [
+        { jp: "この曲には何か心を打つものがある。", kana: "このきょくにはなにかこころをうつものがある。", en: "There's something about this song that strikes the heart." },
+        { jp: "彼の努力には頭が下がるものがある。", kana: "かれのどりょくにはあたまがさがるものがある。", en: "There's something about his effort — I take my hat off." },
+        { jp: "故郷を思うと、悲しいものがある。", kana: "こきょうをおもうと、かなしいものがある。", en: "When I think of home, there's a sadness there." },
+      ],
+      practice: [
+        { kind: "blank", text: "この曲には何か心を打つ___。(there's something about it)", blanks: ["ものがある"] },
+        { kind: "mcq", text: "ものがある expresses…", options: ["existence of an object", "an emotional impression", "obligation", "reason"], answer: 1 },
+        { kind: "tf", text: "ものがある usually takes a modifier like 何か〜.", answer: true },
+      ],
+    },
+    { slug: "n3-u13-l03", title: "It follows that: 〜わけだ", titleJp: "〜わけだ", grammarLabel: "〜わけだ",
+      summary: "わけだ = no wonder / it follows: 十年住んでいたから、詳しいわけだ.",
+      body: { meaning: "Plain + わけだ = THAT'S WHY / no wonder — A follows logically from B: 彼は十年日本に住んでいたから、日本語が上手なわけだ.", formation: [{ pattern: "Verb plain ＋ わけだ", note: "わかるわけだ no wonder (I) understand" }, { pattern: "Noun ＋ なわけだ", note: "先生なわけだ no wonder he's a teacher" }, { pattern: "〜わけではない", note: "it's not that…" }], usage: ["Draws a natural conclusion from given facts.", "わけがない = impossible; わけではない = it's not that."], pitfalls: ["わけだ = logical conclusion; ものだ = general truth.", "わけがない (no reason it could) = impossibility — different from わけだ."], related: ["〜ものだ", "〜はずだ (N4)"] },
+      examples: [
+        { jp: "十年も日本に住んでいたから、日本語が上手なわけだ。", kana: "じゅうねんもにほんにすんでいたから、にほんごがじょうずなわけだ。", en: "He lived in Japan for ten years, so no wonder his Japanese is good." },
+        { jp: "言われてみれば、納得のいくわけだ。", kana: "いわれてみれば、なっとくのいくわけだ。", en: "Now that you mention it, it makes sense." },
+        { jp: "安いわけだ。特売品だから。", kana: "やすいわけだ。とくばいひんだから。", en: "No wonder it's cheap. It's a special sale item." },
+      ],
+      practice: [
+        { kind: "blank", text: "十年も住んでいたから、詳しい___。(no wonder)", blanks: ["わけだ"] },
+        { kind: "mcq", text: "わけだ is used for…", options: ["general truths", "logical conclusions", "obligations", "hypotheses"], answer: 1 },
+        { kind: "mcq", text: "「わけがない」 means…", options: ["there's a reason", "it's impossible", "no wonder", "it's natural"], answer: 1 },
+      ],
+    },
+    { slug: "n3-u13-l04", title: "もんだ vs わけだ vs ものがある", titleJp: "まとめ", grammarLabel: "review",
+      summary: "ものだ = natural truth; ものがある = something striking; わけだ = it follows.",
+      body: { meaning: "Three もの/わけ patterns: ものだ = how things naturally are; ものがある = my emotional reaction; わけだ = logical explanation.",
+        formation: [
+          { pattern: "〜ものだ", note: "general truth / nostalgia (ものだった)" },
+          { pattern: "〜ものがある", note: "there's something (moving) about X" },
+          { pattern: "〜わけだ", note: "no wonder / that explains it" },
+        ],
+        usage: ["Proverbs love ものだ: 急がば回るものだ is unusual but you'll see ものだ in advice.", "わけだ often follows から or evidence."],
+        pitfalls: ["ものだった (past) = nostalgia, not general truth.", "わけだ needs a REASON in the sentence."],
+        related: ["lessons 1-3"] },
+      examples: [
+        { jp: "春になれば、桜が咲くものだ。", kana: "はるになれば、さくらがさくものだ。", en: "In spring, cherry trees bloom — that's how nature works." },
+        { jp: "老人の話には深いものがある。", kana: "ろうじんのはなしにはふかいものがある。", en: "There's something profound in an old man's words." },
+        { jp: "毎日練習したから、上手になったわけだ。", kana: "まいにちれんしゅうしたから、じょうずになったわけだ。", en: "He practiced daily, so no wonder he got good." },
+      ],
+      practice: [
+        { kind: "mcq", text: "「春になれば、桜が咲くものだ。」 — ものだ = ?",
+          options: ["logical conclusion", "natural truth", "emotional impression", "obligation"], answer: 1 },
+        { kind: "mcq", text: "「毎日練習したから、上手になったわけだ。」 — わけだ = ?",
+          options: ["natural truth", "logical conclusion", "emotional impression", "regret"], answer: 1 },
+        { kind: "tf", text: "ものがある expresses the speaker's emotional impression.", answer: true },
+      ],
+    },
+  ],
+}

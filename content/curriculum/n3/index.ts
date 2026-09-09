@@ -10,5 +10,11 @@ import { u07 } from "./u07"
 import { u08 } from "./u08"
 import { u09 } from "./u09"
 import { u10 } from "./u10"
+import { u11 } from "./u11"
+import { u12 } from "./u12"
+import { u13 } from "./u13"
+import { u14 } from "./u14"
+import { u15 } from "./u15"
+import { u16 } from "./u16"
 
-export const n3Units: AuthoredUnit[] = [u01, u02, u03, u04, u05, u06, u07, u08, u09, u10]
+export const n3Units: AuthoredUnit[] = [u01, u02, u03, u04, u05, u06, u07, u08, u09, u10, u11, u12, u13, u14, u15, u16]

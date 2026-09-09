@@ -1,0 +1,80 @@
+import type { AuthoredUnit } from "../../types"
+
+export const u15: AuthoredUnit = {
+  level: "N3", order: 15, title: "Layered statements", titleJp: "じょうじゅん と ふくじゅつ",
+  description: "Formal layering: 〜上(に) (on top of), 〜上で (after/upon), 〜からこそ (precisely because).",
+  vocab: ["経験|けいけん", "調査|ちょうさ", "検討|けんとう", "結果|けっか", "判断|はんだん", "確認|かくにん", "報告|ほうこく", "注意|ちゅうい", "安い|やすい", "高価|こうか", "眺め|ながめ", "理由|りゆう", "愛情|あいじょう", "暖かい|あたたかい", "厳しい|きびしい", "建物|たてもの"],
+  kanji: ["験", "査", "討", "断", "留", "眺", "愛", "温"],
+  exam: [
+    { kind: "mcq", text: "「この建物は新築の上、眺めもいい。」 — 上(に) means…", options: ["above the building", "on top of that (in addition)", "under construction", "before that"], answer: 1 },
+    { kind: "mcq", text: "「よく考えた上で、決めてください。」 — 上で means…", options: ["before thinking", "after considering (then decide)", "while deciding", "instead of deciding"], answer: 1 },
+  ],
+  lessons: [
+    { slug: "n3-u15-l01", title: "On top of that: 〜上(に)", titleJp: "〜上(に)", grammarLabel: "〜上(に)",
+      summary: "上(に) = in addition (and often, unexpectedly): 安い上に、おいしい.",
+      body: { meaning: "Plain/noun + 上(に) = ON TOP OF X, Y too — usually two good or two bad things stacking: 安い上に眺めもいい (cheap, and with a view on top of that).", formation: [{ pattern: "Verb plain ＋ 上に", note: "歩いた上に" }, { pattern: "い-adj ＋ 上に", note: "安い上に" }, { pattern: "Noun ＋ の上に", note: "新築の上に" }], usage: ["Both items usually share polarity (both good / both bad).", "Adds info beyond the first item."], pitfalls: ["Nouns take の before 上に.", "Don't mix good + bad in one 上に — use 反面 for contrast."], related: ["〜反面 (N3 u08)", "〜し"] },
+      examples: [
+        { jp: "このレストランは安い上に、眺めもいい。", kana: "このレストランはやすいうえに、ながめもいい。", en: "This restaurant is cheap, and the view is great on top of that." },
+        { jp: "彼は経験が豊富な上に、若い。", kana: "かれはけいけんがほうふなうえに、わかい。", en: "He has rich experience, and he's young on top of that." },
+        { jp: "遅刻した上に、財布も忘れた。", kana: "ちこくしたうえに、さいふもわすれた。", en: "I was late, and forgot my wallet on top of that." },
+      ],
+      practice: [
+        { kind: "blank", text: "安い___、眺めもいい。(on top of)", blanks: ["上に"] },
+        { kind: "mcq", text: "上(に) items usually share…", options: ["opposite polarity", "the same polarity", "different tenses", "different subjects"], answer: 1 },
+        { kind: "tf", text: "Nouns need の before 上に.", answer: true },
+      ],
+    },
+    { slug: "n3-u15-l02", title: "After doing: 〜上で", titleJp: "〜上で", grammarLabel: "〜上で",
+      summary: "上で = after/upon doing X, then Y: よく考えた上で、決める.",
+      body: { meaning: "Verb た-form + 上で = AFTER DOING X, then Y (deliberate sequence): よく考えた上で決める (decide after thinking it over).", formation: [{ pattern: "Verb た ＋ 上で", note: "考えた上で after considering" }, { pattern: "Verb ない ＋ 上で", note: "確認した上で" }, { pattern: "Noun ＋ の上で", note: "調査の上で" }], usage: ["Formal, deliberate process — business, plans.", "The action in Y depends on X being done first."], pitfalls: ["Must be た-form (past) or の + noun.", "Not the same as 上に (addition) — 上で is sequence."], related: ["〜てから (N5)", "〜たあとで"] },
+      examples: [
+        { jp: "よく考えた上で、返事をします。", kana: "よくかんがえたうえで、へんじをします。", en: "I'll reply after thinking it over." },
+        { jp: "調査の上で、ご報告いたします。", kana: "ちょうさのうえで、ごほうこくいたします。", en: "I'll report after conducting the survey." },
+        { jp: "契約書を確認した上で、サインしてください。", kana: "けいやくしょをかくにんしたうえで、サインしてください。", en: "Please sign after reviewing the contract." },
+      ],
+      practice: [
+        { kind: "blank", text: "よく考えた___、返事をします。(after considering)", blanks: ["上で"] },
+        { kind: "mcq", text: "上で requires…", options: ["dictionary form", "past (た) form", "て-form", "ば-form"], answer: 1 },
+        { kind: "mcq", text: "上で is common in…", options: ["casual chat", "formal/business contexts", "children's speech", "song lyrics"], answer: 1 },
+      ],
+    },
+    { slug: "n3-u15-l03", title: "Precisely because: 〜からこそ", titleJp: "〜からこそ", grammarLabel: "〜からこそ",
+      summary: "からこそ = precisely because X: 君のことを愛しているからこそ、厳しく言う.",
+      body: { meaning: "Plain + からこそ = PRECISELY BECAUSE X (emphatic reason): 愛しているからこそ、厳しく言う (it's precisely because I love you that I'm strict).", formation: [{ pattern: "Verb plain ＋ からこそ", note: "愛しているからこそ" }, { pattern: "い-adj ＋ からこそ", note: "忙しいからこそ" }, { pattern: "Noun ＋ だからこそ", note: "君だからこそ" }], usage: ["Strong emphasis that the reason is THE reason.", "Pairs with んだ: からこそ〜んだ."], pitfalls: ["からこそ needs the reason itself as the cause.", "Nouns take だからこそ (not なからこそ)."], related: ["〜から (N5)", "〜のに"] },
+      examples: [
+        { jp: "君のことを愛しているからこそ、厳しく言う。", kana: "きみのことをあいしているからこそ、きびしくいう。", en: "It's precisely because I love you that I speak harshly." },
+        { jp: "経験があるからこそ、判断が速い。", kana: "けいけんがあるからこそ、はんだんがはやい。", en: "It's precisely because he has experience that his judgment is fast." },
+        { jp: "夢があるからこそ、毎日が楽しい。", kana: "ゆめがあるからこそ、まいにちがたのしい。", en: "It's precisely because I have a dream that every day is fun." },
+      ],
+      practice: [
+        { kind: "blank", text: "愛している___、厳しく言う。(precisely because)", blanks: ["からこそ"] },
+        { kind: "mcq", text: "からこそ is…", options: ["neutral reason", "emphatic reason", "condition", "concession"], answer: 1 },
+        { kind: "tf", text: "君だからこそ uses だからこそ for nouns.", answer: true },
+      ],
+    },
+    { slug: "n3-u15-l04", title: "上に vs 上で vs からこそ", titleJp: "まとめ", grammarLabel: "review",
+      summary: "上に = addition; 上で = sequence after; からこそ = emphatic reason.",
+      body: { meaning: "Three formal connectors: 上に stacks info (both good/bad); 上で sequences (after X, then Y); からこそ emphasizes the reason.",
+        formation: [
+          { pattern: "〜上に", note: "on top of X, Y too (same polarity)" },
+          { pattern: "〜上で", note: "after doing X, then Y (deliberate)" },
+          { pattern: "〜からこそ", note: "precisely because X" },
+        ],
+        usage: ["All three are written/formal-leaning.", "上(に) can drop に: 安い上、眺めもいい is rare but exists."],
+        pitfalls: ["上に = addition; 上で = sequence — don't confuse.", "からこそ needs emphasis — plain から is the neutral version."],
+        related: ["lessons 1-3"] },
+      examples: [
+        { jp: "このアパートは安い上に、新しい。", kana: "このアパートはやすいうえに、あたらしい。", en: "This apartment is cheap, and new on top of that." },
+        { jp: "検討の上、ご連絡いたします。", kana: "けんとうのうえ、ごれんらくいたします。", en: "We'll contact you after consideration." },
+        { jp: "温かいからこそ、厳しさも必要だ。", kana: "あたたかいからこそ、きびしさもひつようだ。", en: "Precisely because it's warm, strictness is also needed." },
+      ],
+      practice: [
+        { kind: "mcq", text: "「安い上に、新しい。」 — 上に = ?",
+          options: ["sequence", "addition", "reason", "concession"], answer: 1 },
+        { kind: "mcq", text: "「検討の上、ご連絡します。」 — 上 = ?",
+          options: ["addition", "sequence (after)", "reason", "concession"], answer: 1 },
+        { kind: "tf", text: "からこそ emphasizes that X is THE reason for Y.", answer: true },
+      ],
+    },
+  ],
+}
