@@ -8,4 +8,6 @@ import { u04 } from "./u04"
 import { u05 } from "./u05"
 import { u06 } from "./u06"
 
-export const n3Units: AuthoredUnit[] = [u01, u02, u03, u04, u05, u06]
+import { u07 } from "./u07"
+
+export const n3Units: AuthoredUnit[] = [u01, u02, u03, u04, u05, u06, u07]
