@@ -1,0 +1,80 @@
+import type { AuthoredUnit } from "../../types"
+
+export const u04: AuthoredUnit = {
+  level: "N2", order: 4, title: "It depends", titleJp: "しだい の ぶんぽう",
+  description: "Dependent on: 〜次第 (as soon as / depending on), 〜次第で (turns on), 〜によっては (in some cases), 〜次第だ (it hinges on).",
+  vocab: ["手続き|てつづき", "書類|しょるい", "準備|じゅんび", "申請|しんせい", "許可|きょか", "出席|しゅっせき", "欠席|けっせき", "連絡|れんらく", "承諾|しょうだく", "拒否|きょひ", "選択|せんたく", "自由|じゆう", "意思|いし", "受け取る|うけとる", "出発|しゅっぱつ", "到着|とうちゃく"],
+  kanji: ["続", "類", "申", "許", "席", "拒", "択", "由", "思"],
+  exam: [
+    { kind: "mcq", text: "「詳細が分かり次第、連絡します。」 means…", options: ["I'll contact you depending on details.", "I'll contact you as soon as I know the details.", "I won't contact you.", "Details contact me."], answer: 1 },
+    { kind: "mcq", text: "「結果次第で、計画を変える。」 means…", options: ["We'll change the plan before results.", "Depending on the results, we'll change the plan.", "Results are unchangeable.", "The plan changed the results."], answer: 1 },
+  ],
+  lessons: [
+    { slug: "n2-u04-l01", title: "As soon as: 〜次第", titleJp: "〜次第", grammarLabel: "〜次第",
+      summary: "次第 = as soon as X (then Y): 見込み次第、連絡する.",
+      body: { meaning: "Verb ます-stem + 次第 = AS SOON AS X IS DONE, Y follows: 手続きが終わり次第、お知らせします.", formation: [{ pattern: "Verb ます-stem ＋ 次第", note: "終わり次第 as soon as done" }, { pattern: "Noun ＋ 次第", note: "許可が下り次第" }], usage: ["Business and polite announcements.", "Implies prompt action after X."], pitfalls: ["Use ます-stem: 終わり次第 (not 終った次第).", "Similar to たらすぐ but formal."], related: ["〜たらすぐ (N4)", "〜とたん (N3)"] },
+      examples: [
+        { jp: "詳細が分かり次第、連絡します。", kana: "しょうさいがわかりしだい、れんらくします。", en: "I'll contact you as soon as I know the details." },
+        { jp: "書類が届き次第、手続きを始めます。", kana: "しょるいがとどきしだい、てつづきをはじめます。", en: "We'll start the procedure as soon as the documents arrive." },
+        { jp: "準備ができ次第、出発しましょう。", kana: "じゅんびができしだい、しゅっぱつしましょう。", en: "Let's depart as soon as preparations are ready." },
+      ],
+      practice: [
+        { kind: "blank", text: "詳細が分かり___、連絡します。", blanks: ["次第"] },
+        { kind: "mcq", text: "次第 takes which verb form?", options: ["past", "ます-stem", "te-form", "dictionary"], answer: 1 },
+        { kind: "tf", text: "次第 is common in business Japanese.", answer: true },
+      ],
+    },
+    { slug: "n2-u04-l02", title: "Turns on: 〜次第で", titleJp: "〜次第で", grammarLabel: "〜次第で",
+      summary: "次第で = depending on X: 準備次第で、結果が変わる.",
+      body: { meaning: "Noun + 次第で = THE OUTCOME DEPENDS ON X: 努力次第で、夢は実現できる (depending on effort, dreams can come true).", formation: [{ pattern: "Noun ＋ 次第で", note: "結果次第で" }, { pattern: "Noun ＋ 次第だ", note: "sentence-final: it hinges on X" }], usage: ["Highlights that X is the deciding factor.", "次第だ at sentence end: すべては君次第だ."], pitfalls: ["次第で (deciding factor) vs 次第 (as soon as) — different!", "Noun attaches directly."], related: ["〜によって (N3)", "〜いかんだ"] },
+      examples: [
+        { jp: "結果次第で、計画を変える必要がある。", kana: "けっかしだいで、けいかくをかえるひつようがある。", en: "Depending on the results, we may need to change the plan." },
+        { jp: "すべては君の努力次第だ。", kana: "すべてはきみのどりょくしだいだ。", en: "Everything hinges on your effort." },
+        { jp: "天気次第で、旅行が中止になるかもしれない。", kana: "てんきしだいで、りょこうがちゅうしになるかもしれない。", en: "Depending on the weather, the trip might be cancelled." },
+      ],
+      practice: [
+        { kind: "blank", text: "結果___、計画を変える。(depending on)", blanks: ["次第で"] },
+        { kind: "mcq", text: "「すべては君次第だ」 — 次第 here means…", options: ["as soon as", "it hinges on you", "order", "always"], answer: 1 },
+        { kind: "tf", text: "準備次第で uses a noun directly.", answer: true },
+      ],
+    },
+    { slug: "n2-u04-l03", title: "In some cases: 〜によっては", titleJp: "〜によっては", grammarLabel: "〜によっては",
+      summary: "によっては = in some cases: 状況によっては、延期もある.",
+      body: { meaning: "Noun + によっては = IN SOME CASES (some X lead to Y): 日によっては、休むこともある.", formation: [{ pattern: "Noun ＋ によっては", note: "人によっては for some people" }, { pattern: "Verb plain ＋ かどうかによっては", note: "depending on whether" }], usage: ["Partial dependence — not all cases.", "Y usually surprising or conditional."], pitfalls: ["によって (means) vs によっては (some cases).", "Often paired with も/ことがある."], related: ["〜によって (N3)", "〜次第で"] },
+      examples: [
+        { jp: "状況によっては、欠席も認められる。", kana: "じょうきょうによっては、けっせきもみとめられる。", en: "In some circumstances, absence is also permitted." },
+        { jp: "人によっては、朝の方が集中できるそうだ。", kana: "ひとによっては、あさのほうがしゅうちゅうできるそうだ。", en: "For some people, mornings are apparently better for focus." },
+        { jp: "日によっては、電車が遅れることがある。", kana: "ひによっては、でんしゃがおくれることがある。", en: "On some days, trains run late." },
+      ],
+      practice: [
+        { kind: "blank", text: "状況___、欠席も認められる。", blanks: ["によっては"] },
+        { kind: "mcq", text: "によっては covers…", options: ["all cases", "some cases", "no cases", "one case"], answer: 1 },
+        { kind: "tf", text: "人によっては = 'for some people'.", answer: true },
+      ],
+    },
+    { slug: "n2-u04-l04", title: "Deciding factors", titleJp: "けっていようそ", grammarLabel: "reading",
+      summary: "次第 in real announcements and plans.",
+      body: { meaning: "Business Japanese loves 次第: 「決定次第、ご連絡いたします」 (we'll notify you once decided).",
+        formation: [
+          { pattern: "決定次第", note: "once decided" },
+          { pattern: "承諾が得られ次第", note: "once approval is obtained" },
+          { pattern: "選択次第だ", note: "it hinges on the choice" },
+        ],
+        usage: ["次第 = as soon as (ます-stem) or hinges on (noun).", "Both meanings appear in the same document — context tells."],
+        pitfalls: ["得られ次第 comes from 得られる (potential).", "ご連絡いたします is humble language."],
+        related: ["lessons 1-3"] },
+      examples: [
+        { jp: "決定次第、ご連絡いたします。", kana: "けっていしだい、ごれんらくいたします。", en: "We'll notify you once the decision is made." },
+        { jp: "承諾が得られ次第、契約を進めます。", kana: "しょうだくがえられしだい、けいやくをすすめます。", en: "Once approval is obtained, we'll proceed with the contract." },
+        { jp: "成功するかどうかは、あなたの選択次第だ。", kana: "せいこうするかどうかは、あなたのせんたくしだいだ。", en: "Whether you succeed hinges on your choice." },
+      ],
+      practice: [
+        { kind: "mcq", text: "「決定次第、ご連絡いたします。」 次第 = ?",
+          options: ["depends on decision", "once decided", "decision is bad", "before deciding"], answer: 1 },
+        { kind: "mcq", text: "「あなたの選択次第だ」 次第 = ?",
+          options: ["as soon as", "hinges on", "order", "requires"], answer: 1 },
+        { kind: "tf", text: "得られ次第 uses the potential form stem.", answer: true },
+      ],
+    },
+  ],
+}

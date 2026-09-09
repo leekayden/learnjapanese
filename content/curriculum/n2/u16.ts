@@ -1,0 +1,87 @@
+import type { AuthoredUnit } from "../../types"
+
+export const u16: AuthoredUnit = {
+  level: "N2", order: 16, title: "Keigo in action", titleJp: "けいご の せかい",
+  description: "The respect system: 尊敬語 (exalting), 謙譲語 (humbling), 丁寧語 (polite), and fixed keigo phrases used in service.",
+  vocab: ["敬語|けいご", "尊敬|そんけい", "謙譲|けんじょう", "丁寧|ていねい", "申す|もうす", "参る|まいる", "おる|おる", "なさる|なさる", "いらっしゃる|いらっしゃる", "伺う|うかがう", "拝見|はいけん", "差し上げる|さしあげる", "お客様|おきゃくさま", "店員|てんいん", "案内|あんない", "窓口|まどぐち"],
+  kanji: ["敬", "尊", "謙", "譲", "伺", "拝", "謹", "客", "窓"],
+  exam: [
+    { kind: "mcq", text: "A shop clerk says 「いらっしゃいませ」. This is…", options: ["casual greeting", "respectful welcome to a customer", "apology", "farewell"], answer: 1 },
+    { kind: "mcq", text: "Which is the humble form of 見る (for your own action)?", options: ["ご覧になる", "拝見する", "お見えになる", "見られる"], answer: 1 },
+  ],
+  lessons: [
+    { slug: "n2-u16-l01", title: "Exalting others: 尊敬語", titleJp: "そんけいご", grammarLabel: "尊敬語",
+      summary: "Raise the other's actions: いらっしゃる・なさる・ご覧になる・おっしゃる.",
+      body: { meaning: "尊敬語 RAISES the listener/third person: 行く→いらっしゃる, する→なさる, 見る→ご覧になる, 言う→おっしゃる.", formation: [{ pattern: "行く → いらっしゃる", note: "go (honorific)" }, { pattern: "する → なさる", note: "do (honorific)" }, { pattern: "見る → ご覧になる", note: "see (honorific)" }, { pattern: "言う → おっしゃる", note: "say (honorific)" }], usage: ["For teachers, customers, seniors.", "お + ます-stem + になる is a general pattern."], pitfalls: ["いらっしゃる → いらっしゃいます (special ます form).", "Never use 尊敬語 for yourself."], related: ["謙譲語 (next)", "丁寧語"] },
+      examples: [
+        { jp: "社長がおっしゃいました。", kana: "しゃちょうがおっしゃいました。", en: "The president said (honorific)." },
+        { jp: "先生は何時ごろいらっしゃいますか。", kana: "せんせいはなんじごろいらっしゃいますか。", en: "Around what time will the teacher come?" },
+        { jp: "部長がこの資料をご覧になりました。", kana: "ぶちょうがこのしりょうをごらんになりました。", en: "The manager looked at this document." },
+      ],
+      practice: [
+        { kind: "match", text: "Match the honorific forms.", pairs: [["行く", "いらっしゃる"], ["する", "なさる"], ["見る", "ご覧になる"], ["言う", "おっしゃる"]] },
+        { kind: "mcq", text: "Use 尊敬語 for…", options: ["yourself", "others you respect", "animals", "objects"], answer: 1 },
+        { kind: "tf", text: "いらっしゃる conjugates to いらっしゃいます.", answer: true },
+      ],
+    },
+    { slug: "n2-u16-l02", title: "Humbling yourself: 謙譲語", titleJp: "けんじょうご", grammarLabel: "謙譲語",
+      summary: "Lower yourself: 参る・申す・伺う・拝見する・いたす.",
+      body: { meaning: "謙譲語 LOWERS your own actions to raise the listener: 行く→参る, 言う→申す, 聞く→伺う, 見る→拝見する, する→いたす.", formation: [{ pattern: "行く → 参る", note: "go (humble)" }, { pattern: "言う → 申す", note: "say (humble)" }, { pattern: "聞く → 伺う", note: "ask (humble)" }, { pattern: "見る → 拝見する", note: "look (humble)" }], usage: ["For your own actions toward superiors/customers.", "お + ます-stem + する general pattern."], pitfalls: ["伺う can mean both 聞く and 行く — context decides.", "拝見する vs ご覧になる: humble vs honorific."], related: ["尊敬語", "謙譲語 II (N1)"] },
+      examples: [
+        { jp: "明日、再度伺います。", kana: "あした、さいどうかがいます。", en: "I'll come/ask again tomorrow." },
+        { jp: "私は田中と申します。", kana: "わたしはたなかともうします。", en: "My name is Tanaka (humble)." },
+        { jp: "では、資料を拝見いたします。", kana: "では、しりょうをはいけんいたします。", en: "Now then, I shall look at the documents." },
+      ],
+      practice: [
+        { kind: "match", text: "Match the humble forms.", pairs: [["行く", "参る"], ["言う", "申す"], ["聞く", "伺う"], ["見る", "拝見する"]] },
+        { kind: "mcq", text: "伺う can mean…", options: ["only listen", "ask or visit", "only eat", "only sleep"], answer: 1 },
+        { kind: "tf", text: "Use 謙譲語 for your own actions.", answer: true },
+      ],
+    },
+    { slug: "n2-u16-l03", title: "Service phrases", titleJp: "サービス けいご", grammarLabel: "service keigo",
+      summary: "いらっしゃいませ・〜でございます・〜いただきます — fixed shop/hotel phrases.",
+      body: { meaning: "Fixed keigo in shops and hotels: いらっしゃいませ (welcome), 〜でございます (formal です), お待ちいただきました (thank you for waiting), かしこまりました (certainly).",
+        formation: [
+          { pattern: "いらっしゃいませ", note: "welcome (shop)" },
+          { pattern: "こちらでございます", note: "this is it (formal)" },
+          { pattern: "少々お待ちください", note: "please wait a moment" },
+          { pattern: "かしこまりました", note: "certainly (staff)" },
+        ],
+        usage: ["Department stores, hotels, restaurants.", "Learn as whole phrases."],
+        pitfalls: ["ございます is the polite form of ある/です.", "お〜ください is a request pattern."],
+        related: ["尊敬語", "謙譲語"] },
+      examples: [
+        { jp: "いらっしゃいませ。何名様ですか。", kana: "いらっしゃいませ。なんめいさまですか。", en: "Welcome. How many people (in your party)?" },
+        { jp: "少々お待ちください。ただいま確認いたします。", kana: "しょうしょうおまちください。ただいまかくにんいたします。", en: "Please wait a moment. I'll check right away." },
+        { jp: "お待たせしました。こちらでございます。", kana: "おまたせしました。こちらでございます。", en: "Thank you for waiting. Here it is." },
+      ],
+      practice: [
+        { kind: "mcq", text: "A customer enters a shop. The clerk says…", options: ["行ってきます", "いらっしゃいませ", "お疲れ様", "失礼します"], answer: 1 },
+        { kind: "mcq", text: "「かしこまりました」 is said by…", options: ["the customer", "the staff member", "neither", "the manager only"], answer: 1 },
+        { kind: "tf", text: "でございます is more formal than です.", answer: true },
+      ],
+    },
+    { slug: "n2-u16-l04", title: "Keigo system recap", titleJp: "けいご まとめ", grammarLabel: "review",
+      summary: "尊敬語 raises others; 謙譲語 lowers self; 丁寧語 keeps it polite.",
+      body: { meaning: "Three pillars: 尊敬語 (others' actions), 謙譲語 (own actions), 丁寧語 (です/ます). Mixing them up is the classic learner mistake.",
+        formation: [
+          { pattern: "尊敬語: 行かれる／いらっしゃる", note: "others' actions" },
+          { pattern: "謙譲語: 参る／いたす", note: "own actions" },
+          { pattern: "丁寧語: です／ます／ございます", note: "politeness level" },
+        ],
+        usage: ["Choose based on WHO does the action.", "Business emails combine all three."],
+        pitfalls: ["行かれる can be passive OR honorific — context.", "Never mix: ×私がいらっしゃる."],
+        related: ["lessons 1-3", "N1 keigo unit"] },
+      examples: [
+        { jp: "社長がいらっしゃって、話を伺いました。", kana: "しゃちょうがいらっしゃって、はなしをうかがいました。", en: "The president came, and I asked about the matter." },
+        { jp: "お客様はもう帰られました。", kana: "おきゃくさまはもうかえられました。", en: "The customer has already gone home." },
+        { jp: "私がご案内いたします。", kana: "わたしがごあんないいたします。", en: "I will show you the way." },
+      ],
+      practice: [
+        { kind: "mcq", text: "「私がご案内いたします」 uses…", options: ["尊敬語", "謙譲語", "丁寧語 only", "casual"], answer: 1 },
+        { kind: "mcq", text: "「お客様は帰られました」 uses…", options: ["謙譲語", "尊敬語", "casual", "imperative"], answer: 1 },
+        { kind: "tf", text: "丁寧語 is the です/ます layer.", answer: true },
+      ],
+    },
+  ],
+}

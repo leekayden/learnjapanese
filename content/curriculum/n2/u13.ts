@@ -1,0 +1,80 @@
+import type { AuthoredUnit } from "../../types"
+
+export const u13: AuthoredUnit = {
+  level: "N2", order: 13, title: "Directions of change", titleJp: "へんか の ほうこう",
+  description: "Trends: 〜つつある (in the process of), 〜一方だ (keeps on, review), 〜ばかりだ (nothing but), 〜に向かって (heading toward).",
+  vocab: ["高齢化|こうれいか", "少子化|しょうしか", "都市|とし", "農村|のうそん", "過疎|かそ", "活性化|かっせいか", "目的|もくてき", "完成|かんせい", "映像|えいぞう", "記録|きろく", "更新|こうしん", "回復|かいふく", "景気|けいき", "影響|えいきょう", "時代|じだい", "流れ|ながれ"],
+  kanji: ["齢", "少", "児", "疎", "活", "映", "像", "更", "向"],
+  exam: [
+    { kind: "mcq", text: "「この町の人口は減りつつある。」 means…", options: ["The population already disappeared.", "The population is gradually declining.", "The population is rising.", "The population is stable."], answer: 1 },
+    { kind: "mcq", text: "「彼は成功に向かって進んでいる。」 means…", options: ["He gave up success.", "He's moving toward success.", "Success is avoiding him.", "He turned away from success."], answer: 1 },
+  ],
+  lessons: [
+    { slug: "n2-u13-l01", title: "In the process of: 〜つつある", titleJp: "〜つつある", grammarLabel: "〜つつある",
+      summary: "つつある = gradually in progress: 減りつつある.",
+      body: { meaning: "Verb ます-stem + つつある = IS IN THE PROCESS OF X (gradual change): 老齢化が進みつつある.", formation: [{ pattern: "Verb ます-stem ＋ つつある", note: "減りつつある" }, { pattern: "変わリつつある", note: "is changing" }], usage: ["Written/formal — reports, news.", "Slower, ongoing change."], pitfalls: ["つつある = gradual process; ている = current state.", "ます-stem: 減る→減りつつある."], related: ["〜ている (N5)", "〜一方だ (u01)"] },
+      examples: [
+        { jp: "この町の人口は減りつつある。", kana: "このまちのじんこうはへりつつある。", en: "This town's population is gradually declining." },
+        { jp: "農村では過疎化が進みつつある。", kana: "のうそんではかそかがすすみつつある。", en: "Depopulation is progressing in rural villages." },
+        { jp: "景気は回復しつつある。", kana: "けいきはかいふくしつつある。", en: "The economy is steadily recovering." },
+      ],
+      practice: [
+        { kind: "blank", text: "この町の人口は減り___ある。", blanks: ["つつ"] },
+        { kind: "mcq", text: "つつある describes change that is…", options: ["instant", "gradual and ongoing", "finished", "hypothetical"], answer: 1 },
+        { kind: "tf", text: "つつある uses the ます-stem.", answer: true },
+      ],
+    },
+    { slug: "n2-u13-l02", title: "Nothing but increasing: 〜ばかりだ", titleJp: "〜ばかりだ", grammarLabel: "〜ばかりだ",
+      summary: "ばかりだ = keeps moving one way (usually bad): 増えるばかりだ.",
+      body: { meaning: "Verb dictionary + ばかりだ = KEEPS MOVING IN ONE DIRECTION (often unwanted): 物価は上がるばかりだ.", formation: [{ pattern: "Verb る ＋ ばかりだ", note: "増えるばかりだ" }, { pattern: "弱るばかりだ", note: "keeps weakening" }], usage: ["Similar to 一方だ — one-way trend.", "Often negative."], pitfalls: ["ばかりだ uses dictionary form (like 一方だ).", "ばかり (just did) is different — たばかり."], related: ["〜一方だ (u01)", "〜ばかりか (u11)"] },
+      examples: [
+        { jp: "都市への人口は増えるばかりだ。", kana: "としへのじんこうはふえるばかりだ。", en: "The population flowing into cities just keeps growing." },
+        { jp: "彼の体力は弱るばかりだ。", kana: "かれのたいりょくはよわるばかりだ。", en: "His strength just keeps weakening." },
+        { jp: "仕事は増えるばかりで、休む暇がない。", kana: "しごとはふえるばかりで、やすむひまがない。", en: "Work just keeps piling up — no time to rest." },
+      ],
+      practice: [
+        { kind: "blank", text: "都市への人口は増える___。", blanks: ["ばかりだ"] },
+        { kind: "mcq", text: "Verb before ばかりだ takes…", options: ["past", "dictionary form", "te-form", "ba-form"], answer: 1 },
+        { kind: "tf", text: "増えるばかりだ and 増える一方だ are similar.", answer: true },
+      ],
+    },
+    { slug: "n2-u13-l03", title: "Heading toward: 〜に向かって", titleJp: "〜に向かって", grammarLabel: "〜に向かって",
+      summary: "に向かって = toward (goal/direction): 成功に向かって進む.",
+      body: { meaning: "Noun + に向かって = TOWARD X (goal or direction): 目的に向かって進む. Also physical: 海に向かって歩く.", formation: [{ pattern: "Noun ＋ に向かって", note: "成功に向かって" }, { pattern: "〜に向かう ＋ Noun", note: "attributive: 未来に向かう" }], usage: ["Effort and direction.", "Physical direction too."], pitfalls: ["に向かって = toward (movement); に対して = against/contrast.", "向かう itself means 'to head toward'."], related: ["〜に対して (N3)", "〜ように"] },
+      examples: [
+        { jp: "彼は成功に向かって進んでいる。", kana: "かれはせいこうにむかってすすんでいる。", en: "He's moving toward success." },
+        { jp: "選手たちはゴールに向かって走った。", kana: "せんしゅたちはゴールにむかってはしった。", en: "The athletes ran toward the goal." },
+        { jp: "新しい時代に向かって、準備を進めよう。", kana: "あたらしいじだいにむかって、じゅんびをすすめよう。", en: "Let's prepare for the new era ahead." },
+      ],
+      practice: [
+        { kind: "blank", text: "彼は成功___進んでいる。", blanks: ["に向かって"] },
+        { kind: "mcq", text: "に向かって expresses…", options: ["contrast", "direction toward", "cause", "concession"], answer: 1 },
+        { kind: "tf", text: "に向かって can be physical or abstract.", answer: true },
+      ],
+    },
+    { slug: "n2-u13-l04", title: "Society in transition", titleJp: "しゃかい ぶんせき", grammarLabel: "reading",
+      summary: "News analysis with つつある・ばかりだ・向かって.",
+      body: { meaning: "Social analysis: 「高齢化が進みつつある日本では、労働人口が減るばかりだ。活性化に向かって、技術開発が必要だ。」",
+        formation: [
+          { pattern: "進みつつある", note: "is progressing" },
+          { pattern: "減るばかりだ", note: "keeps shrinking" },
+          { pattern: "活性化に向かって", note: "toward revitalization" },
+        ],
+        usage: [" JLPT reading sections love these three together.", "少子化 = declining birthrate; 高齢化 = aging."],
+        pitfalls: ["労働人口 = working population.", "技術開発 = technological development."],
+        related: ["lessons 1-3"] },
+      examples: [
+        { jp: "高齢化が進みつつある日本では、労働人口が減るばかりだ。", kana: "こうれいかがすすみつつあるにほんでは、ろうどうじんこうがへるばかりだ。", en: "In Japan, where aging is progressing, the working population just keeps shrinking." },
+        { jp: "活性化に向かって、新しい政策が必要だ。", kana: "かっせいかにむかって、あたらしいせいさくがひつようだ。", en: "Toward revitalization, new policies are needed." },
+        { jp: "映像技術の記録は、毎年更新されつつある。", kana: "えいぞうぎじゅつのきろくは、まいとしこうしんされつつある。", en: "Records in video technology are being updated year by year." },
+      ],
+      practice: [
+        { kind: "mcq", text: "「進みつつある」 = ?",
+          options: ["finished progressing", "progressing gradually", "about to start", "stopped"], answer: 1 },
+        { kind: "mcq", text: "「減るばかりだ」 suggests the trend is…",
+          options: ["reversible", "one-way", "repeated briefly", "unknown"], answer: 1 },
+        { kind: "tf", text: "少子化 means declining birthrate.", answer: true },
+      ],
+    },
+  ],
+}

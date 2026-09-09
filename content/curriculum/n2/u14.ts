@@ -1,0 +1,80 @@
+import type { AuthoredUnit } from "../../types"
+
+export const u14: AuthoredUnit = {
+  level: "N2", order: 14, title: "Conditions and reasons", titleJp: "じょうけん と りゆう",
+  description: "Formal conditions: 〜以上(は) (now that), 〜上は (since), 〜からには (now that), 〜が最後 (once you).",
+  vocab: ["引き受ける|ひきうける", "責任|せきにん", "最後|さいご", "後悔|こうかい", "決心|けっしん", "一途|いちず", "参加|さんか", "規則|きそく", "守る|まもる", "目標|もくひょう", "達成|たっせい", "途中|とちゅう", "投げる|なげる", "挑戦|ちょうせん", "信念|しんねん", "実行|じっこう"],
+  kanji: ["受", "責", "悔", "心", "途", "達", "成", "念", "挑"],
+  exam: [
+    { kind: "mcq", text: "「引き受けた以上、最後まで責任を持ちます。」 means…", options: ["I'll quit midway.", "Now that I've accepted it, I'll see it through.", "I refused the job.", "Responsibility is someone else's."], answer: 1 },
+    { kind: "mcq", text: "「彼は決心したからには、絶対に諦めないだろう。」 means…", options: ["He'll give up soon.", "Now that he's decided, he won't give up.", "He never decided.", "Giving up is certain."], answer: 1 },
+  ],
+  lessons: [
+    { slug: "n2-u14-l01", title: "Now that: 〜以上(は)", titleJp: "〜以上(は)", grammarLabel: "〜以上(は)",
+      summary: "以上(は) = now that X, Y must follow: 引き受けた以上、責任を持つ.",
+      body: { meaning: "Verb plain + 以上(は) = NOW THAT X, Y logically/ethically follows: 学生である以上、学業を優先すべきだ.", formation: [{ pattern: "Verb plain ＋ 以上(は)", note: "引き受けた以上" }, { pattern: "Noun ＋ である以上", note: "学生である以上" }], usage: ["Obligation or strong conclusion from a fact.", "Formal — essays, speeches."], pitfalls: ["Y usually includes duty/decision: べきだ、つもりだ.", "Above all, からには is similar — 以上(は) slightly more formal."], related: ["〜からには", "〜上は"] },
+      examples: [
+        { jp: "引き受けた以上、最後まで責任を持ちます。", kana: "ひきうけたいじょう、さいごまでせきにんをもちます。", en: "Now that I've taken it on, I'll be responsible to the end." },
+        { jp: "学生である以上、学業を優先すべきだ。", kana: "がくせいであるいじょう、がくぎょうをゆうせんすべきだ。", en: "Now that you're a student, studies should come first." },
+        { jp: "参加する以上、規則は守らなければならない。", kana: "さんかするいじょう、きそくはまもらなければならない。", en: "Now that you're participating, you must follow the rules." },
+      ],
+      practice: [
+        { kind: "blank", text: "引き受けた___、最後まで責任を持ちます。", blanks: ["以上"] },
+        { kind: "mcq", text: "Nouns take ___ before 以上.", options: ["が", "の", "である", "を"], answer: 2 },
+        { kind: "tf", text: "Y after 以上(は) often includes duty.", answer: true },
+      ],
+    },
+    { slug: "n2-u14-l02", title: "Now that (resolve): 〜からには", titleJp: "〜からには", grammarLabel: "〜からには",
+      summary: "からには = now that X (determination): 決心したからには、諦めない.",
+      body: { meaning: "Verb plain + からには = NOW THAT X, (strong resolve/expectation): やると言ったからには、最後までやる.", formation: [{ pattern: "Verb plain ＋ からには", note: "決心したからには" }, { pattern: "Noun ＋ からには", note: "学生からには" }], usage: ["Determination, promises, expectations.", "Common with 絶対、必ず."], pitfalls: ["Strong resolve — speaker's commitment.", "Y often ない/つもりだ/はずだ."], related: ["〜以上(は)", "〜上は"] },
+      examples: [
+        { jp: "決心したからには、絶対に諦めない。", kana: "けっしんしたからには、ぜったいにあきらめない。", en: "Now that I've decided, I absolutely won't give up." },
+        { jp: "選手として出場するからには、勝ちたい。", kana: "せんしゅとしてしゅつじょうするからには、かちたい。", en: "Now that I'm competing as an athlete, I want to win." },
+        { jp: "彼が参加するからには、目標達成は可能だろう。", kana: "かれがさんかするからには、もくひょうたっせいはかのうだろう。", en: "Now that he's joining, achieving the goal should be possible." },
+      ],
+      practice: [
+        { kind: "blank", text: "決心した___、絶対に諦めない。", blanks: ["からには"] },
+        { kind: "mcq", text: "からには expresses…", options: ["doubt", "strong resolve", "habit", "possibility"], answer: 1 },
+        { kind: "tf", text: "からには often pairs with 絶対 or 必ず.", answer: true },
+      ],
+    },
+    { slug: "n2-u14-l03", title: "Once you start: 〜が最後", titleJp: "〜が最後", grammarLabel: "〜が最後",
+      summary: "が最後 = once X happens (no going back): 遊び始めたが最後、止まらない.",
+      body: { meaning: "Verb た + が最後 = ONCE X HAPPENS, (an unstoppable result): 食べ始めたが最後、止まらない.", formation: [{ pattern: "Verb た ＋ が最後", note: "始めたが最後" }, { pattern: "Verb る ＋ が最後", note: "dictionary also possible" }], usage: ["No-return situations.", "Often negative or humorous."], pitfalls: ["Unstoppable result follows.", "Similar to たとたん but emphasises no going back."], related: ["〜たとたん (u07)", "〜ない限り (u10)"] },
+      examples: [
+        { jp: "彼は遊び始めたが最後、止まらない。", kana: "かれはあそびはじめたがさいご、とまらない。", en: "Once he starts playing, he can't stop." },
+        { jp: "その小説を読み出したが最後、一晩で読み終えた。", kana: "そのしょうせつをよみだしたがさいご、ひとばんでよみおえた。", en: "Once I started reading that novel, I finished it in one night." },
+        { jp: "口を開いたが最後、彼の説教は一時間続く。", kana: "くちをひらいだがさいご、かれのせっきょうはいちじかんつづく。", en: "Once he starts talking, his lecture lasts an hour." },
+      ],
+      practice: [
+        { kind: "blank", text: "彼は遊び始めた___、止まらない。", blanks: ["が最後"] },
+        { kind: "mcq", text: "が最後 emphasizes…", options: ["reversibility", "no going back", "slow pace", "future plans"], answer: 1 },
+        { kind: "tf", text: "が最後 results are often unstoppable.", answer: true },
+      ],
+    },
+    { slug: "n2-u14-l04", title: "Commitment reading", titleJp: "どっかい", grammarLabel: "reading",
+      summary: "以上(は)・からには・が最後 in speeches.",
+      body: { meaning: "Speech style: 「引き受けた以上、途中で投げない。決心したからには、目標達成まで挑戦を続ける。」",
+        formation: [
+          { pattern: "引き受けた以上", note: "now that I've accepted" },
+          { pattern: "決心したからには", note: "now that I've resolved" },
+          { pattern: "途中で投げない", note: "won't quit midway" },
+        ],
+        usage: ["Speeches pair these with strong verbs.", "信念 = conviction; 実行 = execution."],
+        pitfalls: ["投げる (quit) — slangish 途中で投げる is common in sports."],
+        related: ["lessons 1-3"] },
+      examples: [
+        { jp: "引き受けた以上、途中で投げない。", kana: "ひきうけたいじょう、とちゅうでなげない。", en: "Now that I've accepted it, I won't quit midway." },
+        { jp: "決心したからには、目標達成まで挑戦を続ける。", kana: "けっしんしたからには、もくひょうたっせいまでちょうせんをつづける。", en: "Now that I've resolved, I'll keep challenging until the goal is achieved." },
+        { jp: "信念を実行に移す限り、後悔はないはずだ。", kana: "しんねんをじっこうにうつすかぎり、こうかいはないはずだ。", en: "As long as you act on your convictions, there should be no regret." },
+      ],
+      practice: [
+        { kind: "mcq", text: "「引き受けた以上、投げない」 — 以上 = ?",
+          options: ["above", "now that", "despite", "because"], answer: 1 },
+        { kind: "mcq", text: "「決心したからには」 expresses…",
+          options: ["hesitation", "resolve", "confusion", "memory"], answer: 1 },
+        { kind: "tf", text: "後悔 means regret.", answer: true },
+      ],
+    },
+  ],
+}

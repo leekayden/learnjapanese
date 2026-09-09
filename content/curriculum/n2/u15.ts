@@ -1,0 +1,80 @@
+import type { AuthoredUnit } from "../../types"
+
+export const u15: AuthoredUnit = {
+  level: "N2", order: 15, title: "Softer truths", titleJp: "やわらかい ひてい",
+  description: "Hedges and soft negatives: 〜ないことはない (it's not that… can't), 〜ないこともない, 〜わけではない (it's not that), 〜というものではない (it's not simply that).",
+  vocab: ["可能|かのう", "難しい|むずかしい", "練習|れんしゅう", "全員|ぜんいん", "賛成|さんせい", "意見|いけん", "尊重|そんちょう", "値段|ねだん", "品質|ひんしつ", "保証|ほしょう", "完璧|かんぺき", "人間|にんげん", "失敗|しっぱい", "経験|けいけん", "必要|ひつよう", "独身|どくしん"],
+  kanji: ["可", "能", "賛", "尊", "質", "完", "璧", "独", "身"],
+  exam: [
+    { kind: "mcq", text: "「練習すれば、できないことはない。」 means…", options: ["It's definitely impossible.", "With practice, it's not impossible.", "Practice is useless.", "You must not practice."], answer: 1 },
+    { kind: "mcq", text: "「高いからといって、品質がいいというものではない。」 means…", options: ["High price guarantees quality.", "Expensive doesn't necessarily mean good quality.", "Quality is irrelevant.", "Low price means good quality."], answer: 1 },
+  ],
+  lessons: [
+    { slug: "n2-u15-l01", title: "Not impossible: 〜ないことはない", titleJp: "〜ないことはない", grammarLabel: "〜ないことはない",
+      summary: "ないことはない = it's not that (I/we) can't: 練習すれば、できないことはない.",
+      body: { meaning: "Verb ない + ことはない = IT'S NOT IMPOSSIBLE — soft yes with conditions: 今からでも間に合わないことはない.", formation: [{ pattern: "Verb ない ＋ ことはない", note: "できないことはない" }, { pattern: "い-adj くないことはない", note: "高くないことはない" }, { pattern: "〜ないこともない", note: "softer variant" }], usage: ["Hedged agreement — yes, if conditions are met.", "Spoken Japanese favourite."], pitfalls: ["Double negative = reluctant yes.", "こともない is a slightly softer variant."], related: ["〜わけではない", "〜ないわけではない"] },
+      examples: [
+        { jp: "練習すれば、できないことはない。", kana: "れんしゅうすれば、できないことはない。", en: "With practice, it's not that you can't do it." },
+        { jp: "今から出れば、間に合わないこともない。", kana: "いまからでれば、まにあわないこともない。", en: "If we leave now, we might just make it." },
+        { jp: "彼の意見も、分からないことはない。", kana: "かれのいけんも、わからないことはない。", en: "I can also see where he's coming from." },
+      ],
+      practice: [
+        { kind: "blank", text: "練習すれば、できない___ない。", blanks: ["ことは"] },
+        { kind: "mcq", text: "ないことはない is a…", options: ["strong no", "hedged yes", "question", "command"], answer: 1 },
+        { kind: "tf", text: "間に合わないこともない is softer than ないことはない.", answer: true },
+      ],
+    },
+    { slug: "n2-u15-l02", title: "It's not that: 〜わけではない", titleJp: "〜わけではない", grammarLabel: "〜わけではない",
+      summary: "わけではない = it's not that X: 高いが、買えないわけではない.",
+      body: { meaning: "Plain + わけではない = IT'S NOT THAT X — partial denial: 運動が嫌いなわけではないが、時間がない.", formation: [{ pattern: "Verb plain ＋ わけではない", note: "嫌いなわけではない" }, { pattern: "Noun ＋ (という)わけではない", note: "賛成というわけではない" }], usage: ["Denies a full/general claim.", "Often follows からといって."], pitfalls: ["Different from わけがない (impossible).", "Partial denial — some truth remains."], related: ["〜ないことはない", "〜というものではない"] },
+      examples: [
+        { jp: "彼は運動が嫌いなわけではない。", kana: "かれはうんどうがいやなわけではない。", en: "It's not that he dislikes exercise." },
+        { jp: "全員が賛成だというわけではない。", kana: "ぜんいんがさんせいだというわけではない。", en: "It's not that everyone agrees." },
+        { jp: "独身だから自由だ、というわけでもない。", kana: "どくしんだからじゆうだ、というわけでもない。", en: "It's not exactly that being single means freedom." },
+      ],
+      practice: [
+        { kind: "blank", text: "全員が賛成だ___。(it's not that)", blanks: ["というわけではない"] },
+        { kind: "mcq", text: "わけでは ない denies…", options: ["everything", "partially", "only nouns", "the past"], answer: 1 },
+        { kind: "tf", text: "わけがない means 'impossible'.", answer: true },
+      ],
+    },
+    { slug: "n2-u15-l03", title: "Not simply: 〜というものではない", titleJp: "〜というものではない", grammarLabel: "〜というものではない",
+      summary: "というものではない = it's not simply X: 高い=いいというものではない.",
+      body: { meaning: "Plain + というものではない = IT'S NOT SIMPLY/GENERALLY TRUE that X: 安ければいいというものではない.", formation: [{ pattern: "Plain ＋ というものではない", note: "お金があれば幸せというものではない" }, { pattern: "〜というものでもない", note: "softer" }], usage: ["Challenges overgeneralizations.", "Common in essays and discussion."], pitfalls: ["Stronger than わけではない — rejects a stereotype.", "Usually with general truths."], related: ["〜わけではない", "〜にすぎない (N1)"] },
+      examples: [
+        { jp: "値段が高いほど品質がいいというものではない。", kana: "ねだんがたかいほどひんしつがいいというものではない。", en: "It's not simply true that higher price means better quality." },
+        { jp: "お金があれば幸せというものではない。", kana: "おかねがあればしあわせというものではない。", en: "It's not the case that money equals happiness." },
+        { jp: "完璧な人間はいないというものでもないが、稀だ。", kana: "かんぺきなにんげんはいないというものでもないが、まれだ。", en: "It's not that perfect humans never exist — but they're rare." },
+      ],
+      practice: [
+        { kind: "blank", text: "高いほど品質がいい___ではない。", blanks: ["というもの"] },
+        { kind: "mcq", text: "というものではない rejects…", options: ["a single fact", "an overgeneralization", "a command", "a greeting"], answer: 1 },
+        { kind: "tf", text: "というものでもない is a softer variant.", answer: true },
+      ],
+    },
+    { slug: "n2-u15-l04", title: "Hedging toolkit", titleJp: "ひてい まとめ", grammarLabel: "review",
+      summary: "ないことはない・わけではない・というものではない compared.",
+      body: { meaning: "Three hedges: ないことはない (yes, if…), わけではない (partial denial), というものではない (rejects generalization).",
+        formation: [
+          { pattern: "〜ないことはない", note: "not impossible (hedged yes)" },
+          { pattern: "〜わけではない", note: "it's not that (partial denial)" },
+          { pattern: "〜というものではない", note: "not simply true (anti-stereotype)" },
+        ],
+        usage: ["These make Japanese sound polite and thoughtful.", "Double negatives soften claims."],
+        pitfalls: ["ないことはない = weak positive; わけではない = weak negative.", "というものではない targets general truths."],
+        related: ["lessons 1-3"] },
+      examples: [
+        { jp: "不可能だが、挑戦しないことはない。", kana: "ふかのうだが、ちょうせんしないことはない。", en: "It's hard, but it's not that I won't try." },
+        { jp: "彼の方法が間違っているわけではない。", kana: "かれのほうほうがまちがっているわけではない。", en: "It's not that his method is wrong." },
+        { jp: "経験が多いほど上手というものでもない。", kana: "けいけんがおおいほどじょうずというものでもない。", en: "It's not simply true that more experience means better." },
+      ],
+      practice: [
+        { kind: "mcq", text: "Weakest positive:",
+          options: ["絶対できる", "できないことはない", "できる", "必ず成功する"], answer: 1 },
+        { kind: "mcq", text: "Rejects a stereotype:",
+          options: ["ないことはない", "というものではない", "わけではない", "だろう"], answer: 1 },
+        { kind: "tf", text: "わけではない allows partial truth.", answer: true },
+      ],
+    },
+  ],
+}

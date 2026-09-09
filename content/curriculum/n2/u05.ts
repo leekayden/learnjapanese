@@ -1,0 +1,80 @@
+import type { AuthoredUnit } from "../../types"
+
+export const u05: AuthoredUnit = {
+  level: "N2", order: 5, title: "Hard-won outcomes", titleJp: "けっか の ぶんぽう",
+  description: "Outcomes after long processes: 〜末(に) (finally), 〜あげく (after all), 〜結果 (as a result), 〜だけのことはある (worthy of).",
+  vocab: ["相談|そうだん", "協議|きょうぎ", "議論|ぎろん", "決定|けってい", "断念|だんねん", "裁判|さいばん", "勝負|しょうぶ", "敗北|はいぼく", "練習|れんしゅう", "成果|せいか", "努力|どりょく", "実る|みのる", "天才|てんさい", "技術|ぎじゅつ", "開発|かいはつ", "完成|かんせい"],
+  kanji: ["談", "協", "議", "念", "裁", "北", "果", "才", "開"],
+  exam: [
+    { kind: "mcq", text: "「三日間議論した末、最終案が決まった。」 — 末(に) means…", options: ["before discussing", "after three days of discussion (finally)", "during discussion", "without discussion"], answer: 1 },
+    { kind: "mcq", text: "「頑張ったあげく、負けてしまった。」 implies…", options: ["a happy ending", "effort led to an unfortunate result", "no effort was made", "victory"], answer: 1 },
+  ],
+  lessons: [
+    { slug: "n2-u05-l01", title: "Finally: 〜末(に)", titleJp: "〜末(に)", grammarLabel: "〜末(に)",
+      summary: "末(に) = after a long process, finally: 相談の末、決めた.",
+      body: { meaning: "Noun の / verb た + 末(に) = AFTER A LONG PROCESS, the outcome: 何度も話し合った末、和解した.", formation: [{ pattern: "Verb た ＋ 末(に)", note: "考えた末(に)" }, { pattern: "Noun ＋ の末(に)", note: "協議の末(に)" }], usage: ["Neutral — outcome can be good or bad.", "Very formal/written."], pitfalls: ["Use の for nouns, た for verbs.", "Different from あげく which leans negative."], related: ["〜あげく", "〜結果"] },
+      examples: [
+        { jp: "三日間議論した末、最終案が決まった。", kana: "みっかかんぎろんしたすえ、さいしゅうあんがきまった。", en: "After three days of debate, the final plan was decided." },
+        { jp: "家族と相談の末、留学することにした。", kana: "かぞくとそうだんのすえ、りゅうがくすることにした。", en: "After consulting with my family, I decided to study abroad." },
+        { jp: "十年の研究の末、新しい技術が開発された。", kana: "じゅうねんのけんきゅうのすえ、あたらしいぎじゅつがかいはつされた。", en: "After ten years of research, a new technology was developed." },
+      ],
+      practice: [
+        { kind: "blank", text: "家族と相談___、留学することにした。", blanks: ["の末"] },
+        { kind: "mcq", text: "末(に) outcomes are…", options: ["always bad", "neutral", "always good", "commands"], answer: 1 },
+        { kind: "tf", text: "Nouns take の before 末.", answer: true },
+      ],
+    },
+    { slug: "n2-u05-l02", title: "After all that: 〜あげく", titleJp: "〜あげく", grammarLabel: "〜あげく",
+      summary: "あげく = after all (often negative): 迷ったあげく、買わなかった.",
+      body: { meaning: "Verb た / noun の + あげく = AFTER (often exhausting) X, an (often negative) result: 口論のあげく、絶交した.", formation: [{ pattern: "Verb た ＋ あげく", note: "迷ったあげく" }, { pattern: "Noun ＋ のあげく", note: "口論のあげく" }, { pattern: "〜あげくのはて", note: "emphatic" }], usage: ["Result is usually unwanted or futile.", "Long, tiring process implied."], pitfalls: ["あげく leans negative — use 末(に) for neutral.", "Time expressions: 半日のあげく."], related: ["〜末(に)", "〜結果"] },
+      examples: [
+        { jp: "何時間も迷ったあげく、結局買わなかった。", kana: "なんじかんもまよったあげく、けっきょくかわなかった。", en: "After agonizing for hours, I ended up not buying it." },
+        { jp: "口論のあげく、二人は絶交してしまった。", kana: "こうろんのあげく、ふたりはぜっこうしてしまった。", en: "After the quarrel, the two ended their friendship." },
+        { jp: "長い審議のあげく、法案は否決された。", kana: "ながいしんぎのあげく、ほうあんはひけつされた。", en: "After long deliberation, the bill was rejected." },
+      ],
+      practice: [
+        { kind: "blank", text: "何時間も迷った___、買わなかった。", blanks: ["あげく"] },
+        { kind: "mcq", text: "あげく results are usually…", options: ["positive", "negative", "neutral", "commands"], answer: 1 },
+        { kind: "tf", text: "Nouns take の before あげく.", answer: true },
+      ],
+    },
+    { slug: "n2-u05-l03", title: "As a result: 〜結果 / 〜だけのことはある", titleJp: "〜結果・〜だけのことはある", grammarLabel: "〜結果・〜だけのことはある",
+      summary: "結果 = as a result; だけのことはある = lives up to X.",
+      body: { meaning: "Verb た + 結果 = AS A RESULT: 毎日練習した結果、合格した. 〜だけのことはある = WORTHY OF X / it shows: 彼は天才だけのことはある.", formation: [{ pattern: "Verb た ＋ 結果", note: "努力した結果" }, { pattern: "Noun ＋ の結果", note: "調査の結果" }, { pattern: "Noun ＋ だけのことはある", note: "名人だけのことはある" }], usage: ["結果 = neutral result reporting.", "だけのことはある = praise or recognition."], pitfalls: ["だけのことはある often with さすが: さすが名人だけのことはある.", "結果 can also start sentences: 結果的に."], related: ["〜おかげで (N3)", "〜だけあって"] },
+      examples: [
+        { jp: "毎日練習した結果、試合に勝つことができた。", kana: "まいにちれんしゅうしたけっか、しあいにかつことができた。", en: "As a result of practicing daily, I was able to win the match." },
+        { jp: "調査の結果、有害物質は検出されなかった。", kana: "ちょうさのけっか、ゆうがいぶっしつはけんしゅつされなかった。", en: "As a result of the survey, no harmful substances were detected." },
+        { jp: "さすが天才だけのことはある。", kana: "さすがてんさいだけのことはある。", en: "As expected of a genius — it shows." },
+      ],
+      practice: [
+        { kind: "blank", text: "毎日練習した___、勝つことができた。", blanks: ["結果"] },
+        { kind: "mcq", text: "「さすが名人だけのことはある。」 expresses…", options: ["criticism", "praise", "doubt", "surprise"], answer: 1 },
+        { kind: "tf", text: "結果 can follow nouns with の.", answer: true },
+      ],
+    },
+    { slug: "n2-u05-l04", title: "Reading: the long road", titleJp: "どっかい", grammarLabel: "reading",
+      summary: "末・あげく・結果 in a news-style paragraph.",
+      body: { meaning: "News text: 「激しい競争の末、彼女は代表に選ばれた。しかし、五連敗のあげく、引退を決めた。長い努力の結果、生まれた記録は今も残る。」",
+        formation: [
+          { pattern: "競争の末", note: "after fierce competition" },
+          { pattern: "敗北のあげく", note: "after repeated defeats" },
+          { pattern: "努力の結果", note: "as a result of effort" },
+        ],
+        usage: ["All three can coexist — nuance: 末 neutral, あげく negative, 結果 factual."],
+        pitfalls: ["代表 = representative; 引退 = retirement."],
+        related: ["lessons 1-3"] },
+      examples: [
+        { jp: "激しい競争の末、彼女は代表に選ばれた。", kana: "はげしいきょうそうのすえ、かのじょはだいひょうにえらばれた。", en: "After fierce competition, she was chosen as representative." },
+        { jp: "五連敗のあげく、彼は引退を決めた。", kana: "ごれんぱいのあげく、かれはいんたいをきめた。", en: "After five straight losses, he decided to retire." },
+        { jp: "長い努力の結果、生まれた記録は今も残る。", kana: "ながなどりょくのけっか、うまれたきろくはいまものこる。", en: "The record born of long effort still stands today." },
+      ],
+      practice: [
+        { kind: "mcq", text: "「激しい競争の末、選ばれた。」 末 = ?",
+          options: ["before", "after (neutral)", "because", "despite"], answer: 1 },
+        { kind: "mcq", text: "「五連敗のあげく」 suggests the outcome was…",
+          options: ["positive", "negative", "neutral", "unknown"], answer: 1 },
+        { kind: "tf", text: "結果 reports outcomes factually.", answer: true },
+      ],
+    },
+  ],
+}

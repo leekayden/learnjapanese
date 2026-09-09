@@ -16194,7 +16194,7 @@
   "kana": "かんよう",
   "kanji": "寛容",
   "gloss": "tolerance",
-  "level": 1,
+  "level": 5,
   "pos": [
    "n",
    "adj-na",
@@ -76483,7 +76483,7 @@
   "kana": "かんぺき",
   "kanji": "完璧",
   "gloss": "perfect",
-  "level": 1,
+  "level": 5,
   "pos": [
    "adj-na",
    "n"
@@ -84575,6 +84575,586 @@
   "level": 5,
   "pos": [
    "n"
+  ]
+ },
+ "推移|すいい": {
+  "id": "1371080",
+  "kana": "すいい",
+  "kanji": "推移",
+  "gloss": "transition",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vi"
+  ]
+ },
+ "業界|ぎょうかい": {
+  "id": "1239380",
+  "kana": "ぎょうかい",
+  "kanji": "業界",
+  "gloss": "business world",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "戦後|せんご": {
+  "id": "1607450",
+  "kana": "せんご",
+  "kanji": "戦後",
+  "gloss": "postwar period",
+  "level": 5,
+  "pos": [
+   "n",
+   "adj-no",
+   "adv"
+  ]
+ },
+ "体調|たいちょう": {
+  "id": "1409610",
+  "kana": "たいちょう",
+  "kanji": "体調",
+  "gloss": "physical condition",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "値上げ|ねあげ": {
+  "id": "1600030",
+  "kana": "ねあげ",
+  "kanji": "値上げ",
+  "gloss": "price increase",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "表示|ひょうじ": {
+  "id": "1489610",
+  "kana": "ひょうじ",
+  "kanji": "表示",
+  "gloss": "indication",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "研究者|けんきゅうしゃ": {
+  "id": "1258590",
+  "kana": "けんきゅうしゃ",
+  "kanji": "研究者",
+  "gloss": "researcher",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "子育て|こそだて": {
+  "id": "1307790",
+  "kana": "こそだて",
+  "kanji": "子育て",
+  "gloss": "child rearing",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vi"
+  ]
+ },
+ "日本人|にほんじん": {
+  "id": "1464700",
+  "kana": "にほんじん",
+  "kanji": "日本人",
+  "gloss": "Japanese person",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "専門|せんもん": {
+  "id": "1389880",
+  "kana": "せんもん",
+  "kanji": "専門",
+  "gloss": "speciality",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "本日|ほんじつ": {
+  "id": "1523110",
+  "kana": "ほんじつ",
+  "kanji": "本日",
+  "gloss": "today",
+  "level": 5,
+  "pos": [
+   "n",
+   "adv"
+  ]
+ },
+ "顧客|こきゃく": {
+  "id": "1578540",
+  "kana": "こきゃく",
+  "kanji": "顧客",
+  "gloss": "customer",
+  "level": 5,
+  "pos": [
+   "n",
+   "adj-no"
+  ]
+ },
+ "高齢者|こうれいしゃ": {
+  "id": "1657250",
+  "kana": "こうれいしゃ",
+  "kanji": "高齢者",
+  "gloss": "old person",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "犯行|はんこう": {
+  "id": "1481570",
+  "kana": "はんこう",
+  "kanji": "犯行",
+  "gloss": "crime",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "可能性|かのうせい": {
+  "id": "1191080",
+  "kana": "かのうせい",
+  "kanji": "可能性",
+  "gloss": "possibility",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "行方|ゆくえ": {
+  "id": "1282180",
+  "kana": "ゆくえ",
+  "kanji": "行方",
+  "gloss": "(one's) whereabouts",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "謝罪|しゃざい": {
+  "id": "1323030",
+  "kana": "しゃざい",
+  "kanji": "謝罪",
+  "gloss": "apology",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "接客|せっきゃく": {
+  "id": "1385360",
+  "kana": "せっきゃく",
+  "kanji": "接客",
+  "gloss": "serving customers",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vi"
+  ]
+ },
+ "若者|わかもの": {
+  "id": "1324350",
+  "kana": "わかもの",
+  "kanji": "若者",
+  "gloss": "young person",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "披露宴|ひろうえん": {
+  "id": "1483500",
+  "kana": "ひろうえん",
+  "kanji": "披露宴",
+  "gloss": "reception (e.g. wedding)",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "転職|てんしょく": {
+  "id": "1441210",
+  "kana": "てんしょく",
+  "kanji": "転職",
+  "gloss": "change of job",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vi"
+  ]
+ },
+ "開業|かいぎょう": {
+  "id": "1202600",
+  "kana": "かいぎょう",
+  "kanji": "開業",
+  "gloss": "opening a business",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt",
+   "vi"
+  ]
+ },
+ "不可能|ふかのう": {
+  "id": "1491520",
+  "kana": "ふかのう",
+  "kanji": "不可能",
+  "gloss": "impossible",
+  "level": 5,
+  "pos": [
+   "adj-na",
+   "n"
+  ]
+ },
+ "謙譲|けんじょう": {
+  "id": "1260210",
+  "kana": "けんじょう",
+  "kanji": "謙譲",
+  "gloss": "modesty",
+  "level": 5,
+  "pos": [
+   "adj-na",
+   "n"
+  ]
+ },
+ "失礼|しつれい": {
+  "id": "1320230",
+  "kana": "しつれい",
+  "kanji": "失礼",
+  "gloss": "discourtesy",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vi",
+   "adj-na"
+  ]
+ },
+ "読解|どっかい": {
+  "id": "1456370",
+  "kana": "どっかい",
+  "kanji": "読解",
+  "gloss": "reading comprehension",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "論点|ろんてん": {
+  "id": "1561800",
+  "kana": "ろんてん",
+  "kanji": "論点",
+  "gloss": "point in question (at issue)",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "一途|いちず": {
+  "id": "1728130",
+  "kana": "いちず",
+  "kanji": "一途",
+  "gloss": "single-minded",
+  "level": 5,
+  "pos": [
+   "adj-na",
+   "n",
+   "n-suf"
+  ]
+ },
+ "信念|しんねん": {
+  "id": "1359550",
+  "kana": "しんねん",
+  "kanji": "信念",
+  "gloss": "belief",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "問題点|もんだいてん": {
+  "id": "1536050",
+  "kana": "もんだいてん",
+  "kanji": "問題点",
+  "gloss": "the problem (at issue)",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "外食|がいしょく": {
+  "id": "1203830",
+  "kana": "がいしょく",
+  "kanji": "外食",
+  "gloss": "eating out",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vi"
+  ]
+ },
+ "子ども|こども": {
+  "id": "1307850",
+  "kana": "こども",
+  "kanji": "子供",
+  "gloss": "child",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "少子化|しょうしか": {
+  "id": "2011350",
+  "kana": "しょうしか",
+  "kanji": "少子化",
+  "gloss": "declining birth rate",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "式典|しきてん": {
+  "id": "1319100",
+  "kana": "しきてん",
+  "kanji": "式典",
+  "gloss": "ceremony",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "復帰|ふっき": {
+  "id": "1500720",
+  "kana": "ふっき",
+  "kanji": "復帰",
+  "gloss": "return",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vi"
+  ]
+ },
+ "手料理|てりょうり": {
+  "id": "1328420",
+  "kana": "てりょうり",
+  "kanji": "手料理",
+  "gloss": "home cooking",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "敗北|はいぼく": {
+  "id": "1472610",
+  "kana": "はいぼく",
+  "kanji": "敗北",
+  "gloss": "defeat",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vi"
+  ]
+ },
+ "断念|だんねん": {
+  "id": "1419780",
+  "kana": "だんねん",
+  "kanji": "断念",
+  "gloss": "abandoning (hope, plans)",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "日本語|にほんご": {
+  "id": "1464530",
+  "kana": "にほんご",
+  "kanji": "日本語",
+  "gloss": "Japanese (language)",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "更新|こうしん": {
+  "id": "1279370",
+  "kana": "こうしん",
+  "kanji": "更新",
+  "gloss": "renewal",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt",
+   "vi"
+  ]
+ },
+ "活性化|かっせいか": {
+  "id": "1208340",
+  "kana": "かっせいか",
+  "kanji": "活性化",
+  "gloss": "stimulation (e.g. of an economy)",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt",
+   "vi"
+  ]
+ },
+ "特典|とくてん": {
+  "id": "1455220",
+  "kana": "とくてん",
+  "kanji": "特典",
+  "gloss": "privilege",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "祝辞|しゅくじ": {
+  "id": "1337460",
+  "kana": "しゅくじ",
+  "kanji": "祝辞",
+  "gloss": "congratulatory address",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "菜食|さいしょく": {
+  "id": "1295890",
+  "kana": "さいしょく",
+  "kanji": "菜食",
+  "gloss": "vegetable diet",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt",
+   "vi"
+  ]
+ },
+ "要約|ようやく": {
+  "id": "1605860",
+  "kana": "ようやく",
+  "kanji": "要約",
+  "gloss": "summary",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "視線|しせん": {
+  "id": "1312060",
+  "kana": "しせん",
+  "kanji": "視線",
+  "gloss": "one's line of sight",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "転機|てんき": {
+  "id": "1441090",
+  "kana": "てんき",
+  "kanji": "転機",
+  "gloss": "turning point",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "開幕|かいまく": {
+  "id": "1202960",
+  "kana": "かいまく",
+  "kanji": "開幕",
+  "gloss": "raising the curtain",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt",
+   "vi"
+  ]
+ },
+ "高齢化|こうれいか": {
+  "id": "2086740",
+  "kana": "こうれいか",
+  "kanji": "高齢化",
+  "gloss": "aging (of a population)",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vi"
+  ]
+ },
+ "いらっしゃる|いらっしゃる": {
+  "id": "1000940",
+  "kana": "いらっしゃる",
+  "kanji": "居らっしゃる",
+  "gloss": "to come",
+  "level": 5,
+  "pos": [
+   "v5aru",
+   "vi",
+   "aux-v"
+  ]
+ },
+ "おる|おる": {
+  "id": "1577985",
+  "kana": "おる",
+  "kanji": "居る",
+  "gloss": "to be (animate)",
+  "level": 5,
+  "pos": [
+   "v5r",
+   "vi",
+   "aux-v",
+   "suf"
+  ]
+ },
+ "なさる|なさる": {
+  "id": "1157090",
+  "kana": "なさる",
+  "kanji": "為さる",
+  "gloss": "to do",
+  "level": 5,
+  "pos": [
+   "v5aru",
+   "vt"
   ]
  }
 }
