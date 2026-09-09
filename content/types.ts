@@ -104,7 +104,7 @@ export const AuthoredLessonSchema = z.object({
   summary: z.string(),
   body: LessonBodySchema,
   examples: z.array(AuthoredExampleSchema).min(3).max(6),
-  practice: z.array(AuthoredQuestionSchema).min(4).max(14),
+  practice: z.array(AuthoredQuestionSchema).min(3).max(14),
 })
 
 export type AuthoredLesson = z.infer<typeof AuthoredLessonSchema>
