@@ -40,6 +40,7 @@ export default async function RootLayout({
             authenticated={!!settings}
             initialScriptMode={settings?.scriptMode ?? "FURIGANA"}
             initialFuriganaMode={settings?.furiganaMode ?? "ALWAYS"}
+            initialShowRomaji={settings?.showRomaji ?? false}
           >
             {children}
             <Toaster />

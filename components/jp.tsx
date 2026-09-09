@@ -14,7 +14,9 @@ const SCRIPT_LABELS: Record<string, string> = {
 
 /**
  * Renders Japanese text according to the user's script setting:
- * kanji + furigana (ruby), full hiragana, or romaji.
+ * - FURIGANA: kanji with <ruby> tags (optionally with romaji above, pinyin-style)
+ * - HIRAGANA: full reading text
+ * - ROMAJI: Hepburn romaji
  */
 export function Jp({
   jp,
@@ -23,7 +25,7 @@ export function Jp({
   segments,
   className,
 }: JpTextData & { className?: string }) {
-  const { scriptMode, furiganaMode } = useScriptSettings()
+  const { scriptMode, furiganaMode, showRomaji } = useScriptSettings()
 
   if (scriptMode === "HIRAGANA") {
     return <span className={cn("font-jp", className)}>{kana || jp}</span>
@@ -37,7 +39,35 @@ export function Jp({
     )
   }
 
+  // FURIGANA mode
   if (segments?.length && furiganaMode !== "OFF") {
+    if (showRomaji) {
+      // Pinyin-style: romaji above each segment, furigana below
+      return (
+        <span className={cn("jp-romaji-overlay font-jp", className)} lang="ja">
+          {segments.map((seg, i) => {
+            const segRomaji = seg.reading ? toRomaji(seg.reading) : seg.base
+            return (
+              <span key={i} className="jp-seg">
+                <span className="jp-seg-romaji" aria-hidden>
+                  {segRomaji}
+                </span>
+                {seg.reading ? (
+                  <ruby>
+                    {seg.base}
+                    <rt>{seg.reading}</rt>
+                  </ruby>
+                ) : (
+                  <span>{seg.base}</span>
+                )}
+              </span>
+            )
+          })}
+        </span>
+      )
+    }
+
+    // Standard furigana mode
     return (
       <span
         className={cn("font-jp", className, furiganaMode === "HOVER" && "furigana-hover")}

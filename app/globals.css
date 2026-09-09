@@ -30,6 +30,33 @@ ruby rt {
     visibility: visible;
 }
 
+/* Pinyin-style romaji overlay above furigana */
+.jp-romaji-overlay {
+    display: inline;
+    line-height: 2.4;
+}
+
+.jp-romaji-overlay .jp-seg {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: bottom;
+    margin-right: 0.25em;
+}
+
+.jp-romaji-overlay .jp-seg .jp-seg-romaji {
+    font-size: 0.55em;
+    color: var(--color-muted-foreground);
+    line-height: 1.2;
+    user-select: none;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.jp-romaji-overlay ruby rt {
+    font-size: 0.5em;
+}
+
 /* Stroke order animation */
 .kanji-stroke-svg path {
     fill: none;

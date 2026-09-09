@@ -15,6 +15,7 @@ export default async function SettingsPage() {
         initial={{
           scriptMode: settings?.scriptMode ?? "FURIGANA",
           furiganaMode: settings?.furiganaMode ?? "ALWAYS",
+          showRomaji: settings?.showRomaji ?? false,
           audioOn: settings?.audioOn ?? true,
           dailyGoalXp: settings?.dailyGoalXp ?? 20,
           freeNav: settings?.freeNav ?? false,

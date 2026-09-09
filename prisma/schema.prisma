@@ -89,6 +89,7 @@ model UserSettings {
   user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   scriptMode   ScriptMode   @default(FURIGANA)
   furiganaMode FuriganaMode @default(ALWAYS)
+  showRomaji   Boolean      @default(false)
   audioOn      Boolean      @default(true)
   dailyGoalXp  Int          @default(20)
   freeNav      Boolean      @default(false)

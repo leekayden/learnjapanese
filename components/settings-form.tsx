@@ -14,6 +14,7 @@ import type { FuriganaMode, ScriptMode } from "@/lib/japanese"
 type Settings = {
   scriptMode: ScriptMode
   furiganaMode: FuriganaMode
+  showRomaji: boolean
   audioOn: boolean
   dailyGoalXp: number
   freeNav: boolean
@@ -61,6 +62,15 @@ export function SettingsForm({ initial }: { initial: Settings }) {
               ))}
             </div>
           </div>
+          {settings.scriptMode === "FURIGANA" && (
+            <div className="flex items-center justify-between">
+              <div>
+                <Label>Romaji overlay</Label>
+                <p className="text-sm text-muted-foreground">Show romaji above furigana (pinyin-style).</p>
+              </div>
+              <Switch checked={settings.showRomaji} onCheckedChange={(v) => save({ showRomaji: v })} />
+            </div>
+          )}
           {settings.scriptMode === "FURIGANA" && (
             <div className="space-y-2">
               <Label>Furigana</Label>

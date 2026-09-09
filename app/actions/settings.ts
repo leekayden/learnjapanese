@@ -7,6 +7,7 @@ import { prisma } from "@/lib/db"
 export type ScriptSettingsInput = {
   scriptMode?: ScriptMode
   furiganaMode?: FuriganaMode
+  showRomaji?: boolean
   audioOn?: boolean
   dailyGoalXp?: number
   freeNav?: boolean

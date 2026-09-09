@@ -9,8 +9,10 @@ import { updateScriptSettings } from "@/app/actions/settings"
 type ScriptSettings = {
   scriptMode: ScriptMode
   furiganaMode: FuriganaMode
+  showRomaji: boolean
   setScriptMode: (mode: ScriptMode) => void
   setFuriganaMode: (mode: FuriganaMode) => void
+  setShowRomaji: (v: boolean) => void
   cycleScriptMode: () => void
 }
 
@@ -18,21 +20,24 @@ const ScriptSettingsContext = createContext<ScriptSettings | null>(null)
 
 const LS_KEY = "lj-script-settings"
 
-type Persisted = { scriptMode: ScriptMode; furiganaMode: FuriganaMode }
+type Persisted = { scriptMode: ScriptMode; furiganaMode: FuriganaMode; showRomaji: boolean }
 
 export function ScriptSettingsProvider({
   children,
   initialScriptMode = "FURIGANA",
   initialFuriganaMode = "ALWAYS",
+  initialShowRomaji = false,
   authenticated,
 }: {
   children: React.ReactNode
   initialScriptMode?: ScriptMode
   initialFuriganaMode?: FuriganaMode
+  initialShowRomaji?: boolean
   authenticated: boolean
 }) {
   const [scriptMode, setScriptModeState] = useState<ScriptMode>(initialScriptMode)
   const [furiganaMode, setFuriganaModeState] = useState<FuriganaMode>(initialFuriganaMode)
+  const [showRomaji, setShowRomajiState] = useState(initialShowRomaji)
 
   // Guests: restore persisted choice from localStorage.
   useEffect(() => {
@@ -43,6 +48,7 @@ export function ScriptSettingsProvider({
       const parsed = JSON.parse(raw) as Partial<Persisted>
       if (parsed.scriptMode) setScriptModeState(parsed.scriptMode)
       if (parsed.furiganaMode) setFuriganaModeState(parsed.furiganaMode)
+      if (parsed.showRomaji !== undefined) setShowRomajiState(parsed.showRomaji)
     } catch {
       // ignore malformed storage
     }
@@ -66,28 +72,36 @@ export function ScriptSettingsProvider({
   const setScriptMode = useCallback(
     (mode: ScriptMode) => {
       setScriptModeState(mode)
-      persist({ scriptMode: mode, furiganaMode })
+      persist({ scriptMode: mode, furiganaMode, showRomaji })
     },
-    [furiganaMode, persist],
+    [furiganaMode, showRomaji, persist],
   )
 
   const setFuriganaMode = useCallback(
     (mode: FuriganaMode) => {
       setFuriganaModeState(mode)
-      persist({ scriptMode, furiganaMode: mode })
+      persist({ scriptMode, furiganaMode: mode, showRomaji })
     },
-    [scriptMode, persist],
+    [scriptMode, showRomaji, persist],
   )
 
   const cycleScriptMode = useCallback(() => {
     const next = SCRIPT_MODES[(SCRIPT_MODES.indexOf(scriptMode) + 1) % SCRIPT_MODES.length]
     setScriptModeState(next)
-    persist({ scriptMode: next, furiganaMode })
-  }, [scriptMode, furiganaMode, persist])
+    persist({ scriptMode: next, furiganaMode, showRomaji })
+  }, [scriptMode, furiganaMode, showRomaji, persist])
+
+  const setShowRomaji = useCallback(
+    (v: boolean) => {
+      setShowRomajiState(v)
+      persist({ scriptMode, furiganaMode, showRomaji: v })
+    },
+    [scriptMode, furiganaMode, persist],
+  )
 
   const value = useMemo(
-    () => ({ scriptMode, furiganaMode, setScriptMode, setFuriganaMode, cycleScriptMode }),
-    [scriptMode, furiganaMode, setScriptMode, setFuriganaMode, cycleScriptMode],
+    () => ({ scriptMode, furiganaMode, showRomaji, setScriptMode, setFuriganaMode, setShowRomaji, cycleScriptMode }),
+    [scriptMode, furiganaMode, showRomaji, setScriptMode, setFuriganaMode, setShowRomaji, cycleScriptMode],
   )
 
   return <ScriptSettingsContext.Provider value={value}>{children}</ScriptSettingsContext.Provider>
