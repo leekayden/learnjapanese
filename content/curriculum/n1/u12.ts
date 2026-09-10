@@ -3,7 +3,7 @@ import type { AuthoredUnit } from "../../types"
 export const u12: AuthoredUnit = {
   level: "N1", order: 12, title: "The price of effort", titleJp: "どりょく の だいしょう",
   description: "Extreme effort and outcome: 〜までして (going so far as), 〜てまで (to the extent of), 〜までもない (no need to), 〜ないまでも (if not fully).",
-  vocab: ["挑戦|ちょうせん", "努力|どりょく", "犠牲|ぎせい", "手段|しゅだん", "借金|しゃっきん", "留守番|るすばん", "確認|かくにん", "説明|せつめい", "詳細|しょうさい", "完璧|かんぺき", "会議|かいぎ", "出席|しゅっせき", "謝罪|しゃざい", "輸入|ゆにゅう", "妥協|だきょう", "犠牲を払う|ぎせいをはらう"],
+  vocab: ["挑戦|ちょうせん", "努力|どりょく", "犠牲|ぎせい", "手段|しゅだん", "借金|しゃっきん", "留守番|るすばん", "確認|かくにん", "説明|せつめい", "詳細|しょうさい", "完璧|かんぺき", "会議|かいぎ", "出席|しゅっせき", "謝罪|しゃざい", "輸入|ゆにゅう", "妥協|だきょう", "徹夜|てつや"],
   kanji: ["挑", "戦", "犠", "牲", "借", "金", "留", "輸", "妥"],
   exam: [
     { kind: "mcq", text: "「借金までして、車を買う必要はない。」 means…", options: ["You should borrow to buy a car.", "There's no need to go as far as borrowing money to buy a car.", "Cars are cheap.", "Borrowing is encouraged."], answer: 1 },

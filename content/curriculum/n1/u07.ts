@@ -3,7 +3,7 @@ import type { AuthoredUnit } from "../../types"
 export const u07: AuthoredUnit = {
   level: "N1", order: 7, title: "In the blink of an eye", titleJp: "しゅんかん の れんぞく",
   description: "Rapid succession: 〜が早いか (no sooner), 〜や否や (as soon as), 〜そばから (as fast as), 〜次第 (review).",
-  vocab: ["爆発|ばくはつ", "炎|ほのお", "消す|けす", "泣く|なく", "笑う|わらう", "メモ", "忘れる|わすれる", "消しゴム|けしゴム", "直す|なおす", "掃除|そうじ", "汚す|よごす", "散らかる|ちらかる", "ベル", "鳴る|なる", "飛び出す|とびだす", "駆け出す|かけだす"],
+  vocab: ["爆発|ばくはつ", "炎|ほのお", "消す|けす", "泣く|なく", "笑う|わらう", "|メモ", "忘れる|わすれる", "消しゴム|けしゴム", "直す|なおす", "掃除|そうじ", "汚す|よごす", "散らかる|ちらかる", "|ベル", "鳴る|なる", "飛び出す|とびだす", "駆け出す|かけだす"],
   kanji: ["爆", "発", "炎", "消", "浜", "散", "鳴", "駆", "泥"],
   exam: [
     { kind: "mcq", text: "「彼はベッドに入るが早いか、眠ってしまった。」 means…", options: ["He couldn't sleep.", "No sooner was he in bed than he fell asleep.", "He slept before going to bed.", "He stayed up all night."], answer: 1 },

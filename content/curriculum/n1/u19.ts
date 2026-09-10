@@ -3,7 +3,7 @@ import type { AuthoredUnit } from "../../types"
 export const u19: AuthoredUnit = {
   level: "N1", order: 19, title: "Keigo mastery", titleJp: "けいご きゅうきゅう",
   description: "Advanced keigo: 謙譲語 II (伺う・申し上げる), special honorific verbs, double-keigo traps, and business email skeletons.",
-  vocab: ["申し上げる|もうしあげる", "存じる|ぞんじる", "存じ上げる|ぞんじあげる", "拝借|はいしゃく", "頂戴|ちょうだい", "承る|うけたまわる", "ご容赦|ごようしゃ", "お手数|おてすう", "恐れ入ります|おそれいります", "ご多用|ごたぼう", "遺憾|いかん", "陳謝|ちんしゃ", "謹んで|つつしんで", "賜る|たまわる", "下さる|くださる", "いらっしゃる|いらっしゃる"],
+  vocab: ["申し上げる|もうしあげる", "存じる|ぞんじる", "存じ上げる|ぞんじあげる", "拝借|はいしゃく", "頂戴|ちょうだい", "承る|うけたまわる", "ご容赦|ごようしゃ", "お手数|おてすう", "恐れ入ります|おそれいります", "ご多用|ごたぼう", "遺憾|いかん", "謝罪|しゃざい", "謹んで|つつしんで", "賜る|たまわる", "下さる|くださる", "いらっしゃる|いらっしゃる"],
   kanji: ["申", "上", "存", "借", "戴", "承", "赦", "謹", "賜"],
   exam: [
     { kind: "mcq", text: "「その件は承っております。」 — 承る means…", options: ["to refuse", "to accept/understand (humble)", "to forget", "to doubt"], answer: 1 },

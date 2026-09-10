@@ -3,7 +3,7 @@ import type { AuthoredUnit } from "../../types"
 export const u04: AuthoredUnit = {
   level: "N1", order: 4, title: "Formal concessions", titleJp: "けいしきてきな じょうけん",
   description: "Formal 'even so': 〜とはいえ (granted that), 〜からといって (just because), 〜にしろ〜にしろ (whether), 〜ものの (review).",
-  vocab: ["条件|じょうけん", "状況|じょうきょう", "困難|こんなん", "継続|けいぞく", "努力|どりょく", "成果|せいか", "判断|はんだん", "責任|せきにん", "拠点|きょてん", "回復|かいふく", "予想|よそう", "成果主義|せいかしゅぎ", "評価|ひょうか", "公平|こうへい", "視点|してん", "妥協|だきょう"],
+  vocab: ["条件|じょうけん", "状況|じょうきょう", "困難|こんなん", "継続|けいぞく", "努力|どりょく", "成果|せいか", "判断|はんだん", "責任|せきにん", "拠点|きょてん", "回復|かいふく", "予想|よそう", "評価|ひょうか", "公平|こうへい", "視点|してん", "妥協|だきょう"],
   kanji: ["継", "拠", "復", "予", "想", "評", "価", "公", "平"],
   exam: [
     { kind: "mcq", text: "「回復したとはいえ、まだ油断できない。」 means…", options: ["Recovery failed.", "Although recovered, one still can't let their guard down.", "Recovery is complete.", "There was no recovery."], answer: 1 },

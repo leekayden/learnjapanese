@@ -3,7 +3,7 @@ import type { AuthoredUnit } from "../../types"
 export const u03: AuthoredUnit = {
   level: "N1", order: 3, title: "Emotions at their peak", titleJp: "かんじょう の きわみ",
   description: "Extreme feelings: 〜の至りだ (utmost), 〜かぎりだ (sheer), 〜を禁じ得ない (cannot suppress), 〜に堪えない (unbearable).",
-  vocab: ["感激|かんげき", "感謝|かんしゃ", "光栄|こうえい", "恐縮|きょうしゅく", "残念|ざんねん", "悔しい|くやしい", "悲しい|かなしい", "嬉しい|うれしい", "同情|どうじょう", "抗議|こうぎ", "暴力|ぼうりょく", "犠牲|ぎせい", "悲痛|ひつう", "迷惑|めいわく", "涙|なみだ", "同情を禁じ得ない|どうじょうをきんじえない"],
+  vocab: ["感激|かんげき", "感謝|かんしゃ", "光栄|こうえい", "恐縮|きょうしゅく", "残念|ざんねん", "悔しい|くやしい", "悲しい|かなしい", "嬉しい|うれしい", "同情|どうじょう", "抗議|こうぎ", "暴力|ぼうりょく", "犠牲|ぎせい", "悲痛|ひつう", "迷惑|めいわく", "涙|なみだ", "名誉|めいよ"],
   kanji: ["激", "謝", "栄", "縮", "悔", "抗", "犠", "牲", "禁"],
   exam: [
     { kind: "mcq", text: "「入賞できて、感激の至りです。」 — の至りだ expresses…", options: ["anger", "an emotion at its utmost", "a schedule", "an order"], answer: 1 },

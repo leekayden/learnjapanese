@@ -3,7 +3,7 @@ import type { AuthoredUnit } from "../../types"
 export const u15: AuthoredUnit = {
   level: "N1", order: 15, title: "Fruits of labor", titleJp: "けっか と かち",
   description: "Worth and outcome: 〜に値する (worth), 〜に足る (review), 〜にたえない (review), 〜甲斐がある (worthwhile), 〜かいがある.",
-  vocab: ["価値|かち", "評価|ひょうか", "信頼|しんらい", "名誉|めいよ", "努力|どりょく", "報いる|むくいる", "研究|けんきゅう", "読書|どくしょ", "名誉ある|めいよある", "賞|しょう", "受賞|じゅしょう", "作|さく", "後悔|こうかい", "満足|まんぞく", "達成|たっせい", "成果|せいか"],
+  vocab: ["価値|かち", "評価|ひょうか", "信頼|しんらい", "名誉|めいよ", "努力|どりょく", "報いる|むくいる", "研究|けんきゅう", "読書|どくしょ", "賞|しょう", "受賞|じゅしょう", "作|さく", "後悔|こうかい", "満足|まんぞく", "達成|たっせい", "成果|せいか"],
   kanji: ["値", "誉", "頼", "賞", "読", "書", "悔", "満", "足"],
   exam: [
     { kind: "mcq", text: "「彼の業績は賞賛に値する。」 means…", options: ["His achievements deserve criticism.", "His achievements deserve praise.", "He refuses awards.", "Praise is forbidden."], answer: 1 },

@@ -3,7 +3,7 @@ import type { AuthoredUnit } from "../../types"
 export const u18: AuthoredUnit = {
   level: "N1", order: 18, title: "Moments in passing", titleJp: "ばしょ と とき",
   description: "Situational frames: 〜ところを (while/at the moment of), 〜ところに/へ (just when), 〜にあたって (review), 〜に際して (review).",
-  vocab: ["お忙しいところ|おいそがしいところ", "わざわざ", "お越しいただく|おこしいただく", "感謝|かんしゃ", "出発|しゅっぱつ", "出かける|でかける", "雨|あめ", "降る|ふる", "警察|けいさつ", "呼ぶ|よぶ", "助かる|たすかる", "式典|しきてん", "就任|しゅうにん", "挨拶|あいさつ", "利用|りよう", "注意|ちゅうい"],
+  vocab: ["多忙|たぼう", "直面|ちょくめん", "面会|めんかい", "感謝|かんしゃ", "出発|しゅっぱつ", "出かける|でかける", "雨|あめ", "降る|ふる", "警察|けいさつ", "呼ぶ|よぶ", "助かる|たすかる", "式典|しきてん", "就任|しゅうにん", "挨拶|あいさつ", "利用|りよう", "注意|ちゅうい"],
   kanji: ["所", "越", "感", "謝", "助", "典", "任", "拶", "際"],
   exam: [
     { kind: "mcq", text: "「お忙しいところをお越しいただき、ありがとうございます。」 — ところを here means…", options: ["a place you visited", "despite your busy schedule (at this time)", "the room", "the future"], answer: 1 },
