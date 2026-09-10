@@ -1,0 +1,80 @@
+import type { AuthoredUnit } from "../../types"
+
+export const u04: AuthoredUnit = {
+  level: "N1", order: 4, title: "Formal concessions", titleJp: "けいしきてきな じょうけん",
+  description: "Formal 'even so': 〜とはいえ (granted that), 〜からといって (just because), 〜にしろ〜にしろ (whether), 〜ものの (review).",
+  vocab: ["条件|じょうけん", "状況|じょうきょう", "困難|こんなん", "継続|けいぞく", "努力|どりょく", "成果|せいか", "判断|はんだん", "責任|せきにん", "拠点|きょてん", "回復|かいふく", "予想|よそう", "成果主義|せいかしゅぎ", "評価|ひょうか", "公平|こうへい", "視点|してん", "妥協|だきょう"],
+  kanji: ["継", "拠", "復", "予", "想", "評", "価", "公", "平"],
+  exam: [
+    { kind: "mcq", text: "「回復したとはいえ、まだ油断できない。」 means…", options: ["Recovery failed.", "Although recovered, one still can't let their guard down.", "Recovery is complete.", "There was no recovery."], answer: 1 },
+    { kind: "mcq", text: "「成功したにしろ、失敗したにしろ、経験は財産だ。」 means…", options: ["Only success matters.", "Success or failure, experience is an asset.", "Experience is worthless.", "Only failure teaches."], answer: 1 },
+  ],
+  lessons: [
+    { slug: "n1-u04-l01", title: "Granted that: 〜とはいえ", titleJp: "〜とはいえ", grammarLabel: "〜とはいえ",
+      summary: "とはいえ = granted X, still…: 安くなったとはいえ、まだ高い.",
+      body: { meaning: "Plain + とはいえ = ADMITTING X, BUT: 春とはいえ、まだ寒い日が続く.", formation: [{ pattern: "Plain ＋ とはいえ", note: "春とはいえ" }, { pattern: "Noun ＋ とはいえ", note: "专家とはいえ" }], usage: ["Written, analytical.", "Concedes then qualifies."], pitfalls: ["X is accepted as true — the point is Y qualifies it.", "Similar to といっても but more formal."], related: ["〜からといって", "〜ものの (N2)"] },
+      examples: [
+        { jp: "回復したとはいえ、まだ油断はできない。", kana: "かいふくしたとはいえ、まだゆだんはできない。", en: "Granted there's recovery, we still can't relax." },
+        { jp: "春とはいえ、朝晩はまだ冷え込む。", kana: "はるとはいえ、あさばんはまだひえこむ。", en: "Even though it's spring, mornings and evenings are still chilly." },
+        { jp: "経験者とはいえ、すべてを知っているわけではない。", kana: "けいけんしゃとはいえ、すべてをしっているわけではない。", en: "Though experienced, he doesn't know everything." },
+      ],
+      practice: [
+        { kind: "blank", text: "回復した___、まだ油断はできない。", blanks: ["とはいえ"] },
+        { kind: "mcq", text: "とはいえ is…", options: ["casual", "written/formal", "childish", "imperative"], answer: 1 },
+        { kind: "tf", text: "X in とはいえ is accepted as true.", answer: true },
+      ],
+    },
+    { slug: "n1-u04-l02", title: "Just because: 〜からといって", titleJp: "〜からといって", grammarLabel: "〜からといって",
+      summary: "からといって = just because X, doesn't mean Y: 高いからといって、いいとは限らない.",
+      body: { meaning: "Plain + からといって = JUST BECAUSE X, IT DOESN'T FOLLOW that Y: 日本人だからといって、敬語が完璧とは限らない.", formation: [{ pattern: "Plain ＋ からといって 〜ない", note: "typical negative follow-up" }, { pattern: "〜からって (casual)", note: "spoken" }], usage: ["Rejecting hasty generalizations.", "Almost always followed by a negative/limiting phrase."], pitfalls: ["Y contradicts the assumption from X.", "からって is the casual contraction."], related: ["〜とはいえ", "〜わけではない (N2)"] },
+      examples: [
+        { jp: "値段が高いからといって、品質がいいとは限らない。", kana: "ねだんがたかいからといって、ひんしつがいいとはかぎらない。", en: "Just because it's expensive doesn't mean the quality is good." },
+        { jp: "失敗したからといって、諦める必要はない。", kana: "しっぱいしたからといって、あきらめるひつようはない。", en: "Just because you failed, there's no need to give up." },
+        { jp: "若いからって、体力があるとは限らない。", kana: "わかいからって、たいりょくがあるとはかぎらない。", en: "Young doesn't automatically mean strong." },
+      ],
+      practice: [
+        { kind: "blank", text: "高い___、品質がいいとは限らない。", blanks: ["からといって"] },
+        { kind: "mcq", text: "からといって is usually followed by…", options: ["a command", "a negative/limiting phrase", "a question", "a greeting"], answer: 1 },
+        { kind: "tf", text: "からって is casual speech for からといって.", answer: true },
+      ],
+    },
+    { slug: "n1-u04-l03", title: "Whether A or B: 〜にしろ〜にしろ", titleJp: "〜にしろ〜にしろ", grammarLabel: "〜にしろ〜にしろ",
+      summary: "にしろ〜にしろ = whether A or B, the conclusion holds: 賛成にしろ反対にしろ.",
+      body: { meaning: "A + にしろ + B + にしろ = WHETHER A OR B, Y holds: 出席するにしろ欠席するにしろ、連絡が必要だ.", formation: [{ pattern: "A にしろ B にしろ", note: "either way" }, { pattern: "〜にせよ", note: "formal variant" }], usage: ["Formal argumentation.", "Both options lead to same conclusion."], pitfalls: ["A and B are contrasting alternatives.", "にせよ is even more formal."], related: ["〜にしても (N2)", "〜であれ〜であれ"] },
+      examples: [
+        { jp: "賛成にしろ、反対にしろ、理由を述べるべきだ。", kana: "さんせいにしろ、はんたいにしろ、りゆうをのべるべきだ。", en: "Whether for or against, you should state your reasons." },
+        { jp: "出席するにしろ、欠席するにしろ、前日までに連絡すること。", kana: "しゅっせきするにしろ、けっせきするにしろ、ぜんじつまでにれんらくすること。", en: "Attend or not, notify by the previous day." },
+        { jp: "勝つにせよ負けるにせよ、全力を尽くしたい。", kana: "かつにせよまけるにせよ、ぜんりょくをつくしたい。", en: "Win or lose, I want to give it my all." },
+      ],
+      practice: [
+        { kind: "blank", text: "賛成___、反対___、理由を述べるべきだ。", blanks: ["にしろ", "にしろ"] },
+        { kind: "mcq", text: "The more formal variant of にしろ is…", options: ["にたり", "にせよ", "にほか", "にこそ"], answer: 1 },
+        { kind: "tf", text: "Both alternatives lead to the same conclusion.", answer: true },
+      ],
+    },
+    { slug: "n1-u04-l04", title: "Concession toolkit", titleJp: "まとめ", grammarLabel: "review",
+      summary: "とはいえ・からといって・にしろ — accepting X, arguing Y.",
+      body: { meaning: "Three formal concessions: とはいえ (granted), からといって (just because → not), にしろ〜にしろ (either way).",
+        formation: [
+          { pattern: "〜とはいえ", note: "concede X, qualify it" },
+          { pattern: "〜からといって〜ない", note: "reject the inference" },
+          { pattern: "〜にしろ〜にしろ", note: "both alternatives" },
+        ],
+        usage: ["All common in essays and exams.", "からといって demands a negative follow-up."],
+        pitfalls: ["とはいえ accepts X; からといって denies the link.", "にしろ doubles across alternatives."],
+        related: ["lessons 1-3"] },
+      examples: [
+        { jp: "努力したとはいえ、成果は予想を下回った。", kana: "どりょくしたとはいえ、せいかはよそうをしたまわった。", en: "Granted the effort, results fell below expectations." },
+        { jp: "経験があるからといって、正しい判断ができるとは限らない。", kana: "けいけんがあるからといって、ただしいはんだんができるとはかぎらない。", en: "Experience doesn't guarantee correct judgment." },
+        { jp: "拠点を移すにしろ、継続するにしろ、顧客との調整が要る。", kana: "きょてんをうつすにしろ、けいぞくするにしろ、こきゃくとのちょうせいがいる。", en: "Whether relocating the base or continuing, client coordination is needed." },
+      ],
+      practice: [
+        { kind: "mcq", text: "Rejects an inference from X:",
+          options: ["とはいえ", "からといって〜ない", "にしろ", "ても"], answer: 1 },
+        { kind: "mcq", text: "Both-alternatives pattern:",
+          options: ["とはいえ", "にしろ〜にしろ", "からといって", "けど"], answer: 1 },
+        { kind: "tf", text: "とはいえ concedes X as true.", answer: true },
+      ],
+    },
+  ],
+}

@@ -1,0 +1,88 @@
+import type { AuthoredUnit } from "../../types"
+
+export const u18: AuthoredUnit = {
+  level: "N1", order: 18, title: "Moments in passing", titleJp: "ばしょ と とき",
+  description: "Situational frames: 〜ところを (while/at the moment of), 〜ところに/へ (just when), 〜にあたって (review), 〜に際して (review).",
+  vocab: ["お忙しいところ|おいそがしいところ", "わざわざ", "お越しいただく|おこしいただく", "感謝|かんしゃ", "出発|しゅっぱつ", "出かける|でかける", "雨|あめ", "降る|ふる", "警察|けいさつ", "呼ぶ|よぶ", "助かる|たすかる", "式典|しきてん", "就任|しゅうにん", "挨拶|あいさつ", "利用|りよう", "注意|ちゅうい"],
+  kanji: ["所", "越", "感", "謝", "助", "典", "任", "拶", "際"],
+  exam: [
+    { kind: "mcq", text: "「お忙しいところをお越しいただき、ありがとうございます。」 — ところを here means…", options: ["a place you visited", "despite your busy schedule (at this time)", "the room", "the future"], answer: 1 },
+    { kind: "mcq", text: "「出かけようとしたところに、雨が降り出した。」 means…", options: ["It rained long before.", "Just as I was about to leave, it started raining.", "It never rained.", "I left before the rain."], answer: 1 },
+  ],
+  lessons: [
+    { slug: "n1-u18-l01", title: "In the middle of: 〜ところを", titleJp: "〜ところを", grammarLabel: "〜ところを",
+      summary: "ところを = while you're in the middle of X (gratitude/apology): お忙しいところを.",
+      body: { meaning: "Plain + ところを = AT THE MOMENT OF X (polite frames): お忙しいところを申し訳ありません.", formation: [{ pattern: "Verb plain ＋ ところを", note: "お越しになるところを" }, { pattern: "お忙しいところを", note: "set phrase" }], usage: ["Gratitude and apologies.", "Formal politeness."], pitfalls: ["Often the clause is followed by ありがとう/すみません.", "ところを can also mark someone caught doing X."], related: ["〜ところに", "〜にあたって"] },
+      examples: [
+        { jp: "お忙しいところをお越しいただき、感謝いたします。", kana: "おいそがしいところをおこしいただき、かんしゃいたします。", en: "Thank you for coming despite your busy schedule." },
+        { jp: "勉強しているところを、すみません、邪魔します。", kana: "べんきょうしているところを、すみません、じゃまします。", en: "Sorry to interrupt while you're studying." },
+        { jp: "彼は逃げるところを、警察に捕まった。", kana: "かれはにげるところを、けいさつにつかまった。", en: "He was caught by the police just as he tried to flee." },
+      ],
+      practice: [
+        { kind: "blank", text: "お忙しい___をお越しいただき、感謝いたします。", blanks: ["ところ"] },
+        { kind: "mcq", text: "ところを frames…", options: ["commands", "gratitude/apologies", "questions", "numbers"], answer: 1 },
+        { kind: "tf", text: "逃げるところを捕まった = caught in the act.", answer: true },
+      ],
+    },
+    { slug: "n1-u18-l02", title: "Just when: 〜ところに／へ", titleJp: "〜ところに／へ", grammarLabel: "〜ところに／へ",
+      summary: "ところに/へ = just at the moment X happens: 出かけようとしたところに雨が.",
+      body: { meaning: "Plain + ところに/へ = JUST WHEN X HAPPENS (something else occurs): 疲れて寝ようとしたところに、電話が鳴った.", formation: [{ pattern: "Verb plain ＋ ところに", note: "寝ようとしたところに" }, { pattern: "Verb plain ＋ ところへ", note: "movement nuance" }], usage: ["Narrative timing.", "Something arrives/intervenes."], pitfalls: ["ところに = something intervenes; ところを = gratitude/caught.", "Volitional+とした is common before it."], related: ["〜ところを", "〜たとたん (N2)"] },
+      examples: [
+        { jp: "出かけようとしたところに、雨が降り出した。", kana: "でかけようとしたところに、あめがふりだした。", en: "Just as I was about to leave, it started raining." },
+        { jp: "困っていたところへ、友達が助けに来てくれた。", kana: "こまっていたところへ、ともだちがたすけにきてくれた。", en: "Just when I was stuck, a friend came to help." },
+        { jp: "昼食を終えたところに、訪問客が来た。", kana: "ちゅうしょくをおえたところに、ほうもんきゃくがきた。", en: "We had just finished lunch when a visitor arrived." },
+      ],
+      practice: [
+        { kind: "blank", text: "出かけようとした___、雨が降り出した。", blanks: ["ところに"] },
+        { kind: "mcq", text: "In ところに, something…", options: ["is prevented", "intervenes", "is denied", "repeats"], answer: 1 },
+        { kind: "tf", text: "困っていたところへ is natural usage.", answer: true },
+      ],
+    },
+    { slug: "n1-u18-l03", title: "On the occasion (review): にあたって・に際して", titleJp: "きせつ", grammarLabel: "review",
+      summary: "にあたって vs に際して — both 'on the occasion of', slight register differences.",
+      body: { meaning: "Review: にあたって (major occasion, speeches) vs に際して (formal notices). Both attach to nouns/verbs.",
+        formation: [
+          { pattern: "Noun ＋ にあたって", note: "on the occasion of (ceremonial)" },
+          { pattern: "Noun ＋ に際して", note: "at the time of (notice)" },
+          { pattern: "〜にあたり／に際し", note: "shorter formal forms" },
+        ],
+        usage: ["Ceremonies → にあたって; manuals → に際して."],
+        pitfalls: ["Both are formal; neither is casual."],
+        related: ["〜ところを", "〜に際して (N2 u06)"] },
+      examples: [
+        { jp: "開会にあたって、一言ご挨拶を申し上げます。", kana: "かいかいにあたって、ひとことごあいさつをもうしあげます。", en: "On the occasion of the opening, allow me a few words." },
+        { jp: "ご利用に際しては、注意事項をお読みください。", kana: "ごりようにさいしては、ちゅういじこうをおよみください。", en: "When using this, please read the precautions." },
+        { jp: "就任に際し、所信を述べたい。", kana: "しゅうにんにさいし、しょしんをのべたい。", en: "Upon taking office, I'd like to state my convictions." },
+      ],
+      practice: [
+        { kind: "mcq", text: "Ceremonial speech opener →", options: ["にあたって", "に際して", "ところを", "ところに"], answer: 0 },
+        { kind: "mcq", text: "Manual/notice flavor →", options: ["にあたって", "に際して", "ところへ", "ものを"], answer: 1 },
+        { kind: "tf", text: "に際し is the shorter formal form.", answer: true },
+      ],
+    },
+    { slug: "n1-u18-l04", title: "Reading: the resignation speech", titleJp: "しゅうにん あいさつ", grammarLabel: "reading",
+      summary: "Formal speech combining にあたって・ところを・に至るまで.",
+      body: { meaning: "Speech sample: 「ご多忙の中、ご列席いただき…就任にあたって…皆様のお力に至るまで感謝申し上げます。」",
+        formation: [
+          { pattern: "ご多忙の中", note: "amid your busy schedule" },
+          { pattern: "就任にあたって", note: "upon taking office" },
+          { pattern: "お力に至るまで感謝", note: "gratitude extending to your support" },
+        ],
+        usage: ["Learn speech skeletons as chunks.", "拝辞・拝啓 for letters (N1 bonus)."],
+        pitfalls: ["ご多忙のところ pairs with ありがとうございます."],
+        related: ["lessons 1-3"] },
+      examples: [
+        { jp: "ご多忙のところ、ご列席いただき誠にありがとうございます。", kana: "ごたぼうのところ、ごれっせきいただきまことにありがとうございます。", en: "Thank you sincerely for attending amid your busy schedules." },
+        { jp: "就任にあたって、深い責任感を感じております。", kana: "しゅうにんにあたって、ふかいせきにんかんをかんじております。", en: "Upon taking office, I feel a profound sense of responsibility." },
+        { jp: "ご支援ご協力に至るまで、心より感謝申し上げます。", kana: "ごしえんごきょうりょくにいたるまで、こころよりかんしゃもうしあげます。", en: "From your support to your cooperation — my heartfelt thanks." },
+      ],
+      practice: [
+        { kind: "mcq", text: "「ご多忙のところ」 appears in…",
+          options: ["complaints", "polite thanks", "menus", "headlines"], answer: 1 },
+        { kind: "mcq", text: "「ご支援ご協力」 is a ___ pair.",
+          options: ["casual", "fixed formal", "past", "negative"], answer: 1 },
+        { kind: "tf", text: "感謝申し上げます is humble language.", answer: true },
+      ],
+    },
+  ],
+}

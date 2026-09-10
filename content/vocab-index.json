@@ -85121,6 +85121,451 @@
    "vi"
   ]
  },
+ "一円|いちえん": {
+  "id": "1161130",
+  "kana": "いちえん",
+  "kanji": "一円",
+  "gloss": "one yen",
+  "level": 5,
+  "pos": [
+   "n",
+   "suf",
+   "adv"
+  ]
+ },
+ "多数|たすう": {
+  "id": "1407860",
+  "kana": "たすう",
+  "kanji": "多数",
+  "gloss": "large number (of)",
+  "level": 5,
+  "pos": [
+   "n",
+   "adj-no"
+  ]
+ },
+ "容疑|ようぎ": {
+  "id": "1545380",
+  "kana": "ようぎ",
+  "kanji": "容疑",
+  "gloss": "suspicion",
+  "level": 5,
+  "pos": [
+   "n",
+   "n-suf"
+  ]
+ },
+ "幻想|げんそう": {
+  "id": "1262950",
+  "kana": "げんそう",
+  "kanji": "幻想",
+  "gloss": "fantasy",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "有罪|ゆうざい": {
+  "id": "1541350",
+  "kana": "ゆうざい",
+  "kanji": "有罪",
+  "gloss": "guilt",
+  "level": 5,
+  "pos": [
+   "n",
+   "adj-no"
+  ]
+ },
+ "無罪|むざい": {
+  "id": "1529980",
+  "kana": "むざい",
+  "kanji": "無罪",
+  "gloss": "innocence",
+  "level": 5,
+  "pos": [
+   "n",
+   "adj-no"
+  ]
+ },
+ "光栄|こうえい": {
+  "id": "1272870",
+  "kana": "こうえい",
+  "kanji": "光栄",
+  "gloss": "honour",
+  "level": 5,
+  "pos": [
+   "n",
+   "adj-na"
+  ]
+ },
+ "悲痛|ひつう": {
+  "id": "1483320",
+  "kana": "ひつう",
+  "kanji": "悲痛",
+  "gloss": "grief",
+  "level": 5,
+  "pos": [
+   "n",
+   "adj-na",
+   "adj-no"
+  ]
+ },
+ "拠点|きょてん": {
+  "id": "1232440",
+  "kana": "きょてん",
+  "kanji": "拠点",
+  "gloss": "base (of operations)",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "寒さ|さむさ": {
+  "id": "1210390",
+  "kana": "さむさ",
+  "kanji": "寒さ",
+  "gloss": "coldness",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "忍耐|にんたい": {
+  "id": "1467500",
+  "kana": "にんたい",
+  "kanji": "忍耐",
+  "gloss": "endurance",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "暑さ|あつさ": {
+  "id": "1343480",
+  "kana": "あつさ",
+  "kanji": "暑さ",
+  "gloss": "heat (of the weather)",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "祝福|しゅくふく": {
+  "id": "1337520",
+  "kana": "しゅくふく",
+  "kanji": "祝福",
+  "gloss": "celebration (of a joyous occasion)",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "駆け出す|かけだす": {
+  "id": "1590100",
+  "kana": "かけだす",
+  "kanji": "駆け出す",
+  "gloss": "to run out",
+  "level": 5,
+  "pos": [
+   "v5s",
+   "vi"
+  ]
+ },
+ "満開|まんかい": {
+  "id": "1526750",
+  "kana": "まんかい",
+  "kanji": "満開",
+  "gloss": "full bloom (esp. of cherry blossom)",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vi",
+   "adj-no"
+  ]
+ },
+ "離陸|りりく": {
+  "id": "1550970",
+  "kana": "りりく",
+  "kanji": "離陸",
+  "gloss": "takeoff",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vi"
+  ]
+ },
+ "後継|こうけい": {
+  "id": "1269590",
+  "kana": "こうけい",
+  "kanji": "後継",
+  "gloss": "succession",
+  "level": 5,
+  "pos": [
+   "n",
+   "adj-no"
+  ]
+ },
+ "報いる|むくいる": {
+  "id": "1515630",
+  "kana": "むくいる",
+  "kanji": "報いる",
+  "gloss": "to reward",
+  "level": 5,
+  "pos": [
+   "v1",
+   "vt",
+   "vi"
+  ]
+ },
+ "反論|はんろん": {
+  "id": "1481130",
+  "kana": "はんろん",
+  "kanji": "反論",
+  "gloss": "objection",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt",
+   "vi"
+  ]
+ },
+ "受賞|じゅしょう": {
+  "id": "1329790",
+  "kana": "じゅしょう",
+  "kanji": "受賞",
+  "gloss": "winning a prize",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt",
+   "vi"
+  ]
+ },
+ "本題|ほんだい": {
+  "id": "1522970",
+  "kana": "ほんだい",
+  "kanji": "本題",
+  "gloss": "main topic",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "支援|しえん": {
+  "id": "1310100",
+  "kana": "しえん",
+  "kanji": "支援",
+  "gloss": "support",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "細部|さいぶ": {
+  "id": "1295710",
+  "kana": "さいぶ",
+  "kanji": "細部",
+  "gloss": "details",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "端末|たんまつ": {
+  "id": "1418950",
+  "kana": "たんまつ",
+  "kanji": "端末",
+  "gloss": "terminal",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "適任|てきにん": {
+  "id": "1437460",
+  "kana": "てきにん",
+  "kanji": "適任",
+  "gloss": "competent",
+  "level": 5,
+  "pos": [
+   "adj-na",
+   "adj-no"
+  ]
+ },
+ "信憑性|しんぴょうせい": {
+  "id": "1359790",
+  "kana": "しんぴょうせい",
+  "kanji": "信憑性",
+  "gloss": "authenticity",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "妥当性|だとうせい": {
+  "id": "1408550",
+  "kana": "だとうせい",
+  "kanji": "妥当性",
+  "gloss": "validity",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "遺憾|いかん": {
+  "id": "1159090",
+  "kana": "いかん",
+  "kanji": "遺憾",
+  "gloss": "regrettable",
+  "level": 5,
+  "pos": [
+   "adj-na",
+   "n"
+  ]
+ },
+ "余談|よだん": {
+  "id": "1544370",
+  "kana": "よだん",
+  "kanji": "余談",
+  "gloss": "digression",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "一過性|いっかせい": {
+  "id": "1161280",
+  "kana": "いっかせい",
+  "kanji": "一過性",
+  "gloss": "transient (symptom, phenomenon)",
+  "level": 5,
+  "pos": [
+   "adj-no",
+   "n"
+  ]
+ },
+ "目にする|めにする": {
+  "id": "2399540",
+  "kana": "めにする",
+  "kanji": "目にする",
+  "gloss": "to see",
+  "level": 5,
+  "pos": [
+   "exp",
+   "vs-i"
+  ]
+ },
+ "耳にする|みみにする": {
+  "id": "2059550",
+  "kana": "みみにする",
+  "kanji": "耳にする",
+  "gloss": "to hear",
+  "level": 5,
+  "pos": [
+   "exp",
+   "vs-i"
+  ]
+ },
+ "二度と|にどと": {
+  "id": "2110850",
+  "kana": "にどと",
+  "kanji": "二度と",
+  "gloss": "never again",
+  "level": 5,
+  "pos": [
+   "adv"
+  ]
+ },
+ "存じ上げる|ぞんじあげる": {
+  "id": "2012040",
+  "kana": "ぞんじあげる",
+  "kanji": "存じ上げる",
+  "gloss": "to know (someone)",
+  "level": 5,
+  "pos": [
+   "v1",
+   "vt"
+  ]
+ },
+ "謹んで|つつしんで": {
+  "id": "1242050",
+  "kana": "つつしんで",
+  "kanji": "謹んで",
+  "gloss": "respectfully",
+  "level": 5,
+  "pos": [
+   "adv"
+  ]
+ },
+ "お手数|おてすう": {
+  "id": "1984090",
+  "kana": "おてすう",
+  "kanji": "お手数",
+  "gloss": "trouble",
+  "level": 5,
+  "pos": [
+   "n"
+  ]
+ },
+ "ご容赦|ごようしゃ": {
+  "id": "1545410",
+  "kana": "ようしゃ",
+  "kanji": "容赦",
+  "gloss": "pardon",
+  "level": 5,
+  "pos": [
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "ご多用|ごたぼう": {
+  "id": "1408130",
+  "kana": "たよう",
+  "kanji": "多用",
+  "gloss": "busyness",
+  "level": 5,
+  "pos": [
+   "adj-na",
+   "n",
+   "vs",
+   "vt"
+  ]
+ },
+ "恐れ入ります|おそれいります": {
+  "id": "2863193",
+  "kana": "おそれいります",
+  "kanji": "恐れ入ります",
+  "gloss": "I feel honored",
+  "level": 5,
+  "pos": [
+   "exp"
+  ]
+ },
+ "同然|どうぜん": {
+  "id": "1452950",
+  "kana": "どうぜん",
+  "kanji": "同然",
+  "gloss": "just like",
+  "level": 5,
+  "pos": [
+   "adj-no",
+   "adj-na",
+   "n"
+  ]
+ },
  "いらっしゃる|いらっしゃる": {
   "id": "1000940",
   "kana": "いらっしゃる",
