@@ -66,6 +66,71 @@ ruby rt {
     stroke-linejoin: round;
 }
 
+/* Smooth kana stroke player */
+.kana-stroke-svg .kana-stroke-draw,
+.kana-stroke-svg .kana-stroke-ghost {
+    fill: none;
+    stroke: var(--color-foreground);
+    stroke-width: 3.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.kana-stroke-svg .kana-stroke-ghost {
+    stroke-width: 3.4;
+}
+
+.kana-stroke-num-bg {
+    fill: var(--color-foreground);
+    opacity: 0.85;
+}
+
+.kana-stroke-num-text {
+    fill: var(--color-background);
+    font-size: 7px;
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-weight: 600;
+    text-anchor: middle;
+    dominant-baseline: central;
+    user-select: none;
+}
+
+/* Flashcard flip */
+.kana-card-3d {
+    perspective: 1000px;
+}
+
+.kana-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.55s cubic-bezier(0.4, 0.05, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.kana-card-inner.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.kana-card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border);
+    background: var(--color-card);
+    box-shadow: 0 1px 2px oklch(0 0 0 / 0.04);
+}
+
+.kana-card-face-back {
+    transform: rotateY(180deg);
+}
+
 @theme inline {
     --font-heading: var(--font-sans);
     --font-sans: var(--font-sans);

@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname, useRouter } from "next/navigation"
 import { toast } from "sonner"
-import { BookOpen, GraduationCap, Library, ListChecks, LogOut, Package, Settings, Type, User } from "lucide-react"
+import { BookOpen, GraduationCap, Languages, Library, ListChecks, LogOut, Package, Settings, Type, User } from "lucide-react"
 
 import { Jp } from "@/components/jp"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
@@ -22,6 +22,7 @@ import { cn } from "@/lib/utils"
 const NAV_LINKS = [
   { href: "/learn", label: "Learn", icon: GraduationCap },
   { href: "/review", label: "Review", icon: ListChecks },
+  { href: "/resources/kana", label: "Kana", icon: Languages },
   { href: "/vocab", label: "Vocab", icon: BookOpen },
   { href: "/kanji", label: "Kanji", icon: Type },
   { href: "/dictionary", label: "Dictionary", icon: Library },
