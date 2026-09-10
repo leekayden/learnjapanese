@@ -40,18 +40,22 @@ export function ScriptSettingsProvider({
   const [showRomaji, setShowRomajiState] = useState(initialShowRomaji)
 
   // Guests: restore persisted choice from localStorage.
+  // Deferred to a microtask so the first paint uses server-rendered defaults
+  // (avoids a hydration mismatch and a synchronous cascade in the effect).
   useEffect(() => {
     if (authenticated) return
-    try {
-      const raw = localStorage.getItem(LS_KEY)
-      if (!raw) return
-      const parsed = JSON.parse(raw) as Partial<Persisted>
-      if (parsed.scriptMode) setScriptModeState(parsed.scriptMode)
-      if (parsed.furiganaMode) setFuriganaModeState(parsed.furiganaMode)
-      if (parsed.showRomaji !== undefined) setShowRomajiState(parsed.showRomaji)
-    } catch {
-      // ignore malformed storage
-    }
+    queueMicrotask(() => {
+      try {
+        const raw = localStorage.getItem(LS_KEY)
+        if (!raw) return
+        const parsed = JSON.parse(raw) as Partial<Persisted>
+        if (parsed.scriptMode) setScriptModeState(parsed.scriptMode)
+        if (parsed.furiganaMode) setFuriganaModeState(parsed.furiganaMode)
+        if (parsed.showRomaji !== undefined) setShowRomajiState(parsed.showRomaji)
+      } catch {
+        // ignore malformed storage
+      }
+    })
   }, [authenticated])
 
   const persist = useCallback(

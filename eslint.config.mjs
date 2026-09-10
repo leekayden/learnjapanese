@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // One-off data-pipeline scripts run via tsx, not shipped in the bundle:
+    "scripts/**",
   ]),
 ]);
 

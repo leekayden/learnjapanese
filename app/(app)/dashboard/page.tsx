@@ -98,7 +98,7 @@ export default async function DashboardPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Today's goal</CardTitle>
+          <CardTitle>Today&apos;s goal</CardTitle>
           <CardDescription>
             {xpToday} of {dailyGoal} XP — small steps count.
           </CardDescription>
