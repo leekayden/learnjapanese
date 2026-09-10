@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { prisma } from "@/lib/db"
 import type { Level } from "@/content/types"
 
-export const metadata = { title: "My kanji" }
+export const metadata = { title: "Kanji" }
 
 const LEVELS: Level[] = ["N5", "N4", "N3", "N2", "N1"]
 
@@ -72,7 +72,7 @@ export default async function KanjiPage({
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold">My kanji</h1>
+        <h1 className="text-2xl font-bold">Kanji</h1>
         <p className="text-muted-foreground">
           Kanji introduced by the course, with stroke order, readings and meanings.
         </p>

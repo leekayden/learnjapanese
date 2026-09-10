@@ -10,7 +10,7 @@ import { prisma } from "@/lib/db"
 import type { Level } from "@/content/types"
 import { cn } from "@/lib/utils"
 
-export const metadata = { title: "My vocab" }
+export const metadata = { title: "Vocab" }
 
 const LEVELS: Level[] = ["N5", "N4", "N3", "N2", "N1"]
 
@@ -43,7 +43,7 @@ export default async function VocabPage({ searchParams }: { searchParams: Promis
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold">My vocabulary</h1>
+        <h1 className="text-2xl font-bold">Vocabulary</h1>
         <p className="text-muted-foreground">Every word from units you have passed, with its level and unit.</p>
       </div>
 

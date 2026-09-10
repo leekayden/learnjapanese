@@ -71,7 +71,7 @@ To add a unit: create `content/curriculum/{level}/uNN.ts` following the existing
 | `/learn/[level]/[unit]/exam` | Unit exam (pass 75% to unlock next) |
 | `/learn/[level]/exam` | Level exam (pass 75% to unlock next level) |
 | `/review` | Spaced-repetition review session |
-| `/vocab` | My vocabulary list |
+| `/vocab` | Vocabulary list |
 | `/kanji` | Kanji browser with radical search |
 | `/dictionary` | Full JMdict search |
 | `/settings` | Script mode (furigana/hiragana/romaji), daily goal |
