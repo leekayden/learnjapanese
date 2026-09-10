@@ -26,7 +26,7 @@ export function ReviewRunner({ cards }: { cards: ReviewCardData[] }) {
 
   if (!cards.length) {
     return (
-      <Card className="mx-auto max-w-xl text-center">
+      <Card className="text-center">
         <CardHeader>
           <CardTitle>Nothing due — nice!</CardTitle>
         </CardHeader>
@@ -39,7 +39,7 @@ export function ReviewRunner({ cards }: { cards: ReviewCardData[] }) {
 
   if (finished) {
     return (
-      <Card className="mx-auto max-w-xl text-center">
+      <Card className="text-center">
         <CardHeader>
           <CardTitle>Review complete 🎉</CardTitle>
         </CardHeader>
@@ -51,7 +51,7 @@ export function ReviewRunner({ cards }: { cards: ReviewCardData[] }) {
   }
 
   return (
-    <div className="mx-auto max-w-2xl space-y-4">
+    <div className="space-y-4">
       <div className="flex items-center gap-3 text-sm text-muted-foreground">
         <Progress value={(idx / cards.length) * 100} className="flex-1" />
         <span>

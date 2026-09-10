@@ -35,7 +35,7 @@ export default async function KanjiDetailPage({ params }: { params: Promise<{ ch
   })
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6">
+    <div className="space-y-6">
       <div className="flex items-center gap-4">
         <Jp jp={decoded} kana={decoded} className="text-6xl font-bold" />
         <div className="space-y-1">

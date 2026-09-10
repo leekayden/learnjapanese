@@ -124,7 +124,7 @@ export function QuizPlayer({
   if (done && result) {
     const passed = result.score >= 75
     return (
-      <Card className="mx-auto max-w-xl text-center">
+      <Card className="text-center">
         <CardHeader>
           <CardTitle className={cn("text-3xl", passed ? "text-green-600 dark:text-green-400" : "text-destructive")}>
             {result.score}%
@@ -146,7 +146,7 @@ export function QuizPlayer({
   }
 
   return (
-    <Card className="mx-auto max-w-2xl">
+    <Card>
       <CardHeader className="gap-3">
         <div className="flex items-center justify-between text-sm text-muted-foreground">
           <CardTitle className="text-base">{title}</CardTitle>

@@ -40,7 +40,7 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
 
   return (
     <LearnShell sidebar={sidebar}>
-    <div className="mx-auto max-w-3xl space-y-6">
+    <div className="space-y-6">
       <div>
         <p className="text-sm text-muted-foreground">
           <Link href={`/learn/${lesson.unit.level.toLowerCase()}`} className="hover:underline">

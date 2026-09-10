@@ -10,7 +10,7 @@ export default async function AppLayout({ children }: { children: React.ReactNod
   return (
     <div className="min-h-svh">
       <AppNavbar userName={user.name} userEmail={user.email} />
-      <main className="mx-auto max-w-6xl p-4 md:p-6">{children}</main>
+      <main className="mx-auto w-full max-w-6xl px-4 py-4 md:px-6 md:py-6">{children}</main>
     </div>
   )
 }

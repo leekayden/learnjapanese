@@ -252,5 +252,7 @@ ruby rt {
     }
   html {
     @apply font-sans;
+    /* Keep layout width stable when vertical scrollbar appears/disappears between pages */
+    scrollbar-gutter: stable;
     }
 }

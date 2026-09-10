@@ -19,7 +19,7 @@ export default async function WordPage({ params }: { params: Promise<{ id: strin
   const display = word.kanjiForms[0]?.text ?? word.kanaForms[0]?.text ?? ""
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6">
+    <div className="space-y-6">
       <div className="flex items-center gap-3">
         <Jp jp={display} kana={word.kanaForms[0]?.text ?? ""} romaji={word.romaji} className="text-4xl font-bold" />
         <TtsButton text={word.kanaForms[0]?.text ?? display} className="size-9" />
