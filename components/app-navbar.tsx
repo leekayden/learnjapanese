@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -191,13 +192,17 @@ export function AppNavbar({ userName, userEmail }: { userName: string; userEmail
                 <div className="text-xs font-normal text-muted-foreground">{userEmail}</div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem render={<Link href="/settings" />}>
-                <Settings className="mr-2 size-4" /> Settings
-              </DropdownMenuItem>
+              <DropdownMenuGroup>
+                <DropdownMenuItem render={<Link href="/settings" />}>
+                  <Settings className="mr-2 size-4" /> Settings
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={onSignOut}>
-                <LogOut className="mr-2 size-4" /> Sign out
-              </DropdownMenuItem>
+              <DropdownMenuGroup>
+                <DropdownMenuItem onClick={onSignOut}>
+                  <LogOut className="mr-2 size-4" /> Sign out
+                </DropdownMenuItem>
+              </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
