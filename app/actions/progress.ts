@@ -20,22 +20,24 @@ export async function saveLessonPractice(lessonId: string, questions: QuizQuesti
   const bestScore = Math.max(existing?.bestScore ?? 0, score)
   const passed = score >= PRACTICE_PASS
   const wasCompleted = existing?.status === "COMPLETED"
+  // A failed retake must not revoke an earlier pass.
+  const completed = passed || wasCompleted
 
   await prisma.lessonProgress.upsert({
     where: { userId_lessonId: { userId, lessonId } },
     create: {
       userId,
       lessonId,
-      status: passed ? "COMPLETED" : "IN_PROGRESS",
+      status: completed ? "COMPLETED" : "IN_PROGRESS",
       bestScore,
       attempts: 1,
-      completedAt: passed ? new Date() : null,
+      completedAt: completed ? new Date() : null,
     },
     update: {
-      status: passed ? "COMPLETED" : "IN_PROGRESS",
+      status: completed ? "COMPLETED" : "IN_PROGRESS",
       bestScore,
       attempts: (existing?.attempts ?? 0) + 1,
-      completedAt: passed ? (existing?.completedAt ?? new Date()) : null,
+      completedAt: completed ? (existing?.completedAt ?? new Date()) : null,
     },
   })
 
@@ -43,7 +45,7 @@ export async function saveLessonPractice(lessonId: string, questions: QuizQuesti
     await awardXp(userId, correctCount * 2, "practice")
   }
 
-  return { ok: true as const, score }
+  return { ok: true as const, score, completed }
 }
 
 /** Submit a unit exam; on pass, unlock review cards. */
