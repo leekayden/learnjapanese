@@ -9,11 +9,12 @@ function Slider({
   max = 100,
   ...props
 }: SliderPrimitive.Root.Props) {
-  const _values = Array.isArray(value)
-    ? value
-    : Array.isArray(defaultValue)
-      ? defaultValue
-      : [min, max]
+  const toArr = (v: number | readonly number[] | undefined, fallback: number[]): number[] => {
+    if (Array.isArray(v)) return [...v]
+    if (typeof v === "number") return [v]
+    return fallback
+  }
+  const _values = toArr(value, toArr(defaultValue, [min]))
 
   return (
     <SliderPrimitive.Root

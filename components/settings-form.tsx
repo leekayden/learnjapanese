@@ -104,7 +104,7 @@ export function SettingsForm({ initial }: { initial: Settings }) {
           <div className="space-y-2">
             <Label>Daily XP goal: {settings.dailyGoalXp}</Label>
             <Slider
-              value={settings.dailyGoalXp}
+              value={[settings.dailyGoalXp]}
               min={5}
               max={100}
               step={5}
@@ -124,8 +124,10 @@ export function SettingsForm({ initial }: { initial: Settings }) {
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <Label>Free navigation</Label>
-              <p className="text-sm text-muted-foreground">Unlock all units and levels at once.</p>
+              <Label>Unlock all lessons</Label>
+              <p className="text-sm text-muted-foreground">
+                Free navigation — open every unit and lesson without passing exams first.
+              </p>
             </div>
             <Switch checked={settings.freeNav} onCheckedChange={(v) => save({ freeNav: v })} />
           </div>
