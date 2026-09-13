@@ -67,3 +67,130 @@ export function isUnitUnlocked(
   const prev = info.units[index - 1]
   return prev ? info.passedUnits.has(prev.id) : false
 }
+
+export type NextLesson = {
+  id: string
+  title: string
+  grammarLabel: string
+  order: number
+  unitId: string
+  unitTitle: string
+  unitOrder: number
+  level: "N5" | "N4" | "N3" | "N2" | "N1"
+  practiceDone: boolean
+}
+
+const LEVEL_ORDER = ["N5", "N4", "N3", "N2", "N1"] as const
+
+/** Mark a lesson as started the first time the learner opens it (never downgrade). */
+export async function ensureLessonStarted(userId: string, lessonId: string) {
+  const existing = await prisma.lessonProgress.findUnique({
+    where: { userId_lessonId: { userId, lessonId } },
+    select: { id: true },
+  })
+  if (existing) return
+  await prisma.lessonProgress.create({
+    data: { userId, lessonId, status: "IN_PROGRESS" },
+  })
+}
+
+/** Whether the learner has passed practice for a lesson. */
+export async function isLessonPracticed(userId: string, lessonId: string) {
+  const row = await prisma.lessonProgress.findUnique({
+    where: { userId_lessonId: { userId, lessonId } },
+    select: { status: true },
+  })
+  return row?.status === "COMPLETED"
+}
+
+/**
+ * Best "continue" target: most recently touched in-progress lesson,
+ * otherwise the first incomplete lesson in the earliest unlocked unit.
+ */
+export async function getNextLesson(userId: string): Promise<NextLesson | null> {
+  const inProgress = await prisma.lessonProgress.findFirst({
+    where: { userId, status: "IN_PROGRESS" },
+    orderBy: { updatedAt: "desc" },
+    include: {
+      lesson: {
+        select: {
+          id: true,
+          title: true,
+          grammarLabel: true,
+          order: true,
+          unitId: true,
+          unit: { select: { id: true, title: true, order: true, level: true } },
+        },
+      },
+    },
+  })
+  if (inProgress) {
+    const l = inProgress.lesson
+    return {
+      id: l.id,
+      title: l.title,
+      grammarLabel: l.grammarLabel,
+      order: l.order,
+      unitId: l.unitId,
+      unitTitle: l.unit.title,
+      unitOrder: l.unit.order,
+      level: l.unit.level,
+      practiceDone: false,
+    }
+  }
+
+  for (const level of LEVEL_ORDER) {
+    const overview = await getLevelOverview(level, userId)
+    if (!overview.units.length) continue
+
+    const prevLevel = LEVEL_ORDER[LEVEL_ORDER.indexOf(level) - 1]
+    const prevExamPassed = prevLevel
+      ? !!(await prisma.examAttempt.findFirst({
+          where: { userId, levelExam: prevLevel, passed: true },
+          select: { id: true },
+        }))
+      : true
+
+    for (let i = 0; i < overview.units.length; i++) {
+      const unit = overview.units[i]!
+      if (!isUnitUnlocked(i, level, overview, prevExamPassed)) continue
+      const next = unit.lessons.find((ls) => !overview.completedLessons.has(ls.id))
+      if (next) {
+        return {
+          id: next.id,
+          title: next.title,
+          grammarLabel: next.grammarLabel,
+          order: next.order,
+          unitId: unit.id,
+          unitTitle: unit.title,
+          unitOrder: unit.order,
+          level,
+          practiceDone: false,
+        }
+      }
+    }
+  }
+
+  return null
+}
+
+/** Next lesson in the same unit after the given lesson, or null. */
+export async function getAdjacentLessons(lessonId: string) {
+  const lesson = await prisma.lesson.findUnique({
+    where: { id: lessonId },
+    select: { unitId: true, order: true },
+  })
+  if (!lesson) return { prev: null, next: null }
+
+  const [prev, next] = await Promise.all([
+    prisma.lesson.findFirst({
+      where: { unitId: lesson.unitId, order: lesson.order - 1 },
+      select: { id: true, title: true, grammarLabel: true },
+    }),
+    prisma.lesson.findFirst({
+      where: { unitId: lesson.unitId, order: lesson.order + 1 },
+      select: { id: true, title: true, grammarLabel: true },
+    }),
+  ])
+  return { prev, next }
+}
