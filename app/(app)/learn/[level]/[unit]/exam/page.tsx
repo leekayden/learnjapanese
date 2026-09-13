@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation"
 
 import { ExamRunner } from "@/components/exam-runner"
+import { ExternalQuizButton } from "@/components/external-quiz-button"
+import { ExternalResultBanner } from "@/components/external-result-banner"
 import { LearnShell } from "@/components/learn-shell"
 import { getSidebarData } from "@/lib/learn-sidebar"
 import { prisma } from "@/lib/db"
@@ -9,8 +11,11 @@ import { PageCrumbs } from "@/components/page-crumbs"
 
 export const metadata = { title: "Unit exam" }
 
-export default async function UnitExamPage({ params }: { params: Promise<{ unit: string }> }) {
+export default async function UnitExamPage(
+  { params, searchParams }: { params: Promise<{ unit: string }>; searchParams: Promise<{ qr?: string }> },
+) {
   const { unit } = await params
+  const { qr } = await searchParams
   const unitRow = await prisma.unit.findUnique({
     where: { id: unit },
     include: { lessons: { orderBy: { order: "asc" }, select: { id: true } } },
@@ -53,6 +58,10 @@ export default async function UnitExamPage({ params }: { params: Promise<{ unit:
           <p className="text-muted-foreground">
             {questions.length} questions · pass at 75% to unlock the next unit and create review cards.
           </p>
+        </div>
+        {qr === "1" && <ExternalResultBanner externalQuizId={`lj:unit-exam:${unitRow.id}`} />}
+        <div className="flex justify-end">
+          <ExternalQuizButton kind="unit-exam" refId={unitRow.id} />
         </div>
         <ExamRunner
           unitId={unitRow.id}

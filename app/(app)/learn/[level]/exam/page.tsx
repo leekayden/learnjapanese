@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation"
 
 import { LevelExamRunner } from "@/components/exam-runner"
+import { ExternalQuizButton } from "@/components/external-quiz-button"
+import { ExternalResultBanner } from "@/components/external-result-banner"
 import { LearnShell } from "@/components/learn-shell"
 import { composeLevelExam } from "@/lib/exam"
 import { getSidebarData } from "@/lib/learn-sidebar"
@@ -12,8 +14,11 @@ export const metadata = { title: "Level exam" }
 
 const VALID: Level[] = ["N5", "N4", "N3", "N2", "N1"]
 
-export default async function LevelExamPage({ params }: { params: Promise<{ level: string }> }) {
+export default async function LevelExamPage(
+  { params, searchParams }: { params: Promise<{ level: string }>; searchParams: Promise<{ qr?: string }> },
+) {
   const { level } = await params
+  const { qr } = await searchParams
   const lvl = level.toUpperCase() as Level
   if (!VALID.includes(lvl)) notFound()
 
@@ -43,6 +48,10 @@ export default async function LevelExamPage({ params }: { params: Promise<{ leve
           <p className="text-muted-foreground">
             {questions.length} questions drawn from every unit · pass at 75% to unlock the next level.
           </p>
+        </div>
+        {qr === "1" && <ExternalResultBanner externalQuizId={`lj:level-exam:${lvl}`} />}
+        <div className="flex justify-end">
+          <ExternalQuizButton kind="level-exam" refId={lvl} />
         </div>
         <LevelExamRunner
           level={lvl}

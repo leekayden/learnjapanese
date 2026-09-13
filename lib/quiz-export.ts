@@ -10,7 +10,7 @@ import type { QuizJson, QuizQuestion } from "@/lib/quiz"
  *   matching:    pairMap → answer
  *   short-answer: accept is stripped (quiz-renderer uses single `answer`)
  */
-function toQuizRendererFormat(q: QuizQuestion): QuizQuestion {
+export function toQuizRendererFormat(q: QuizQuestion): QuizQuestion {
   const base: QuizQuestion = {
     id: q.id,
     type: q.type,

@@ -27,6 +27,7 @@ model User {
   srsCards      SrsCard[]
   xpEvents      XpEvent[]
   streak        Streak?
+  externalQuizResults ExternalQuizResult[]
 }
 
 model Session {
@@ -321,4 +322,20 @@ model Sentence {
   en String? @db.Text
 
   @@index([jp(length: 191)])
+}
+
+// Results returned from quiz-renderer (external attempts). One row per
+// renderer attempt id so replays of the results webhook are idempotent.
+model ExternalQuizResult {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  attemptId      String   @unique
+  sourceApp      String   @default("learnjapanese")
+  externalQuizId String
+  score          Float
+  responses      Json
+  appliedAt      DateTime @default(now())
+
+  @@index([userId])
 }

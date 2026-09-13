@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation"
 
 import { PracticeRunner } from "@/components/practice-runner"
+import { ExternalQuizButton } from "@/components/external-quiz-button"
+import { ExternalResultBanner } from "@/components/external-result-banner"
 import { prisma } from "@/lib/db"
 import type { QuizQuestion } from "@/lib/quiz"
 import { getSidebarData } from "@/lib/learn-sidebar"
@@ -9,8 +11,11 @@ import { PageCrumbs } from "@/components/page-crumbs"
 
 export const metadata = { title: "Practice" }
 
-export default async function PracticePage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function PracticePage(
+  { params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<{ qr?: string }> },
+) {
   const { slug } = await params
+  const { qr } = await searchParams
   const lesson = await prisma.lesson.findUnique({
     where: { id: slug },
     select: {
@@ -63,6 +68,10 @@ export default async function PracticePage({ params }: { params: Promise<{ slug:
           <p className="text-muted-foreground">
             {questions.length} questions · score 60% to mark this lesson complete.
           </p>
+        </div>
+        {qr === "1" && <ExternalResultBanner externalQuizId={`lj:lesson:${lesson.id}`} />}
+        <div className="flex justify-end">
+          <ExternalQuizButton kind="lesson" refId={lesson.id} />
         </div>
         <PracticeRunner
           lessonSlug={lesson.id}
