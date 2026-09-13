@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Check, X } from "lucide-react"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -13,14 +14,14 @@ import type { ReviewCardData } from "@/lib/srs"
 import { gradeReviewCard } from "@/app/actions/review"
 
 /**
- * Flashcard-style review: reveal answer, self-grade, then move on.
- * Uses QuizPlayer for the question types that need inputs (single/short).
+ * Flashcard-style review: answer, check, then self-grade for the SRS scheduler.
  */
 export function ReviewRunner({ cards }: { cards: ReviewCardData[] }) {
   const router = useRouter()
   const [idx, setIdx] = useState(0)
   const [finished, setFinished] = useState(false)
   const [stats, setStats] = useState({ again: 0, good: 0 })
+  const [revealed, setRevealed] = useState(false)
 
   const card = cards[idx]
 
@@ -30,8 +31,11 @@ export function ReviewRunner({ cards }: { cards: ReviewCardData[] }) {
         <CardHeader>
           <CardTitle>Nothing due — nice!</CardTitle>
         </CardHeader>
-        <CardContent className="text-muted-foreground">
-          Complete more unit exams to add words, kanji and grammar to your review queue.
+        <CardContent className="space-y-4 text-muted-foreground">
+          <p>Complete more unit exams to add words, kanji and grammar to your review queue.</p>
+          <Button variant="outline" render={<Link href="/learn" />}>
+            Go to course <ArrowRight className="ml-1 size-4" />
+          </Button>
         </CardContent>
       </Card>
     )
@@ -41,10 +45,15 @@ export function ReviewRunner({ cards }: { cards: ReviewCardData[] }) {
     return (
       <Card className="text-center">
         <CardHeader>
-          <CardTitle>Review complete 🎉</CardTitle>
+          <CardTitle>Review complete</CardTitle>
         </CardHeader>
-        <CardContent className="text-muted-foreground">
-          {stats.good} solid · {stats.again} to see again soon. Come back later for the rest.
+        <CardContent className="space-y-4">
+          <p className="text-muted-foreground">
+            {stats.good} solid · {stats.again} to see again soon.
+          </p>
+          <Button onClick={() => router.push("/dashboard")}>
+            Back to dashboard <ArrowRight className="ml-1 size-4" />
+          </Button>
         </CardContent>
       </Card>
     )
@@ -59,25 +68,38 @@ export function ReviewRunner({ cards }: { cards: ReviewCardData[] }) {
         </span>
       </div>
       <QuizPlayer
-        title={`Review — ${card.cardType.replace("_", " ").toLowerCase()}`}
+        key={card.cardId}
+        title={`Review · ${card.cardType.replace(/_/g, " ").toLowerCase()}`}
         questions={[card.question]}
         submitLabel="Done"
+        hideFooter={revealed}
+        onCheckedChange={(checked) => {
+          if (checked) setRevealed(true)
+        }}
         onFinish={async () => {
-          // grading handled by the buttons below; this never fires in practice
+          // grading is handled by the self-grade buttons
         }}
       />
-      <GradeButtons
-        onGrade={async (grade) => {
-          await gradeReviewCard(card.cardId, grade)
-          if (grade >= 2) setStats((s) => ({ ...s, good: s.good + 1 }))
-          else setStats((s) => ({ ...s, again: s.again + 1 }))
-          if (idx + 1 < cards.length) setIdx(idx + 1)
-          else {
-            setFinished(true)
-            router.refresh()
-          }
-        }}
-      />
+      {revealed && (
+        <GradeButtons
+          onGrade={async (grade) => {
+            await gradeReviewCard(card.cardId, grade)
+            if (grade >= 2) setStats((s) => ({ ...s, good: s.good + 1 }))
+            else setStats((s) => ({ ...s, again: s.again + 1 }))
+            setRevealed(false)
+            if (idx + 1 < cards.length) setIdx(idx + 1)
+            else {
+              setFinished(true)
+              router.refresh()
+            }
+          }}
+        />
+      )}
+      {!revealed && (
+        <p className="text-center text-xs text-muted-foreground">
+          Answer, then press Check to reveal how you did — after that you&apos;ll grade yourself.
+        </p>
+      )}
     </div>
   )
 }

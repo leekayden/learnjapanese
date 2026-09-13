@@ -50,12 +50,24 @@ export function QuizPlayer({
   onFinish,
   submitLabel = "Finish",
   backHref,
+  nextHref,
+  passMark = 75,
+  passLabel = "Great work — you passed!",
+  failLabel = "Not quite — review the notes and try again. Unlimited attempts!",
+  hideFooter = false,
+  onCheckedChange,
 }: {
   questions: QuizQuestion[]
   title: string
   onFinish: (score: number, responses: Record<string, Response>) => Promise<void>
   submitLabel?: string
   backHref?: string
+  nextHref?: string
+  passMark?: number
+  passLabel?: string
+  failLabel?: string
+  hideFooter?: boolean
+  onCheckedChange?: (checked: boolean, correct: boolean) => void
 }) {
   const router = useRouter()
   const [idx, setIdx] = useState(0)
@@ -94,6 +106,11 @@ export function QuizPlayer({
     setResponses((r) => ({ ...r, [q.id]: v }))
   }
 
+  function check() {
+    setChecked(true)
+    onCheckedChange?.(true, gradeQuestion(q, responses[q.id]))
+  }
+
   async function finish() {
     setSaving(true)
     const score = scoreAttempt(questions, responses).score
@@ -107,6 +124,7 @@ export function QuizPlayer({
     if (idx + 1 < questions.length) {
       setIdx(idx + 1)
       setChecked(false)
+      onCheckedChange?.(false, false)
     } else {
       void finish()
     }
@@ -118,11 +136,18 @@ export function QuizPlayer({
     setChecked(false)
     setDone(false)
     setResult(null)
+    onCheckedChange?.(false, false)
     bumpNonce()
   }
 
   if (done && result) {
-    const passed = result.score >= 75
+    const passed = result.score >= passMark
+    const continueHref = passed ? (nextHref ?? backHref) : backHref
+    const continueLabel = passed
+      ? nextHref
+        ? "Next up"
+        : "Continue"
+      : "Back to notes"
     return (
       <Card className="text-center">
         <CardHeader>
@@ -130,15 +155,18 @@ export function QuizPlayer({
             {result.score}%
           </CardTitle>
           <p className="text-sm text-muted-foreground">
-            {passed ? "Great work — you passed!" : "Not quite — review the notes and try again. Unlimited attempts!"}
+            {passed ? passLabel : failLabel}
           </p>
+          <p className="text-xs text-muted-foreground">Pass mark is {passMark}%</p>
         </CardHeader>
-        <CardFooter className="flex justify-center gap-3">
+        <CardFooter className="flex flex-wrap items-center justify-center gap-3">
           <Button variant="outline" onClick={retry}>
             <RotateCcw className="mr-2 size-4" /> Try again
           </Button>
-          {backHref && (
-            <Button onClick={() => router.push(backHref)}>Continue</Button>
+          {continueHref && (
+            <Button onClick={() => router.push(continueHref)} disabled={saving}>
+              {continueLabel} <ChevronRight className="ml-1 size-4" />
+            </Button>
           )}
         </CardFooter>
       </Card>
@@ -179,17 +207,22 @@ export function QuizPlayer({
         )}
       </CardContent>
 
-      <CardFooter className="justify-end gap-2">
-        {!checked ? (
-          <Button disabled={current === undefined || current === "" || (Array.isArray(current) && current.length === 0)} onClick={() => setChecked(true)}>
-            Check
-          </Button>
-        ) : (
-          <Button onClick={next}>
-            {idx + 1 < questions.length ? "Next" : submitLabel} <ChevronRight className="ml-1 size-4" />
-          </Button>
-        )}
-      </CardFooter>
+      {!hideFooter && (
+        <CardFooter className="justify-end gap-2">
+          {!checked ? (
+            <Button
+              disabled={current === undefined || current === "" || (Array.isArray(current) && current.length === 0)}
+              onClick={check}
+            >
+              Check
+            </Button>
+          ) : (
+            <Button onClick={next}>
+              {idx + 1 < questions.length ? "Next" : submitLabel} <ChevronRight className="ml-1 size-4" />
+            </Button>
+          )}
+        </CardFooter>
+      )}
     </Card>
   )
 }
