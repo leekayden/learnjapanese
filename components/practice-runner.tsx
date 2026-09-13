@@ -31,8 +31,9 @@ export function PracticeRunner({
       backHref={`/lesson/${lessonSlug}`}
       nextHref={nextLessonId ? `/lesson/${nextLessonId}` : (unitHref ?? `/lesson/${lessonSlug}`)}
       onFinish={async (score, responses) => {
-        await saveLessonPractice(lessonSlug, questions, responses)
+        const res = await saveLessonPractice(lessonSlug, questions, responses)
         router.refresh()
+        return res.ok ? { saved: true } : { saved: false, reason: res.reason }
       }}
     />
   )

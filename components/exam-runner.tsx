@@ -38,7 +38,11 @@ export function ExamRunner({
         if (res.ok && res.passed) {
           toast.success(`Passed with ${res.score}% — review cards unlocked!`)
         }
+        if (!res.ok) {
+          toast.error(res.reason === "unauthenticated" ? "Sign in to save your exam result" : "Couldn't save your result")
+        }
         router.refresh()
+        return res.ok ? { saved: true } : { saved: false, reason: res.reason }
       }}
     />
   )
@@ -70,7 +74,11 @@ export function LevelExamRunner({
         if (res.ok && res.passed) {
           toast.success(`${level} cleared! The next level is unlocked.`)
         }
+        if (!res.ok) {
+          toast.error(res.reason === "unauthenticated" ? "Sign in to save your exam result" : "Couldn't save your result")
+        }
         router.refresh()
+        return res.ok ? { saved: true } : { saved: false, reason: res.reason }
       }}
     />
   )

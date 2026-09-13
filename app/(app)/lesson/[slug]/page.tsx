@@ -11,7 +11,7 @@ import type { LessonBody } from "@/content/types"
 import { getSidebarData } from "@/lib/learn-sidebar"
 import { LearnShell } from "@/components/learn-shell"
 import { getCurrentUser } from "@/lib/session"
-import { ensureLessonStarted, getAdjacentLessons, isLessonPracticed } from "@/lib/progress"
+import { ensureLessonStarted, getAdjacentLessons, getLessonPracticeSummary, PRACTICE_PASS } from "@/lib/progress"
 import { cn } from "@/lib/utils"
 import { PageCrumbs } from "@/components/page-crumbs"
 
@@ -39,7 +39,8 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
   const user = await getCurrentUser()
   if (user) await ensureLessonStarted(user.id, lesson.id)
 
-  const practiced = user ? await isLessonPracticed(user.id, lesson.id) : false
+  const practiceSummary = user ? await getLessonPracticeSummary(user.id, lesson.id) : null
+  const practiced = practiceSummary?.status === "COMPLETED"
   const { next } = await getAdjacentLessons(lesson.id)
 
   const sidebar = await getSidebarData(lesson.unit.level, {
@@ -110,6 +111,13 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
               </li>
             ))}
           </ol>
+          {practiceSummary && practiceSummary.attempts > 0 && (
+            <p className="text-xs text-muted-foreground">
+              {practiced
+                ? `Best score ${Math.round(practiceSummary.bestScore)}% · ${practiceSummary.attempts} ${practiceSummary.attempts === 1 ? "attempt" : "attempts"}`
+                : `Practiced ${practiceSummary.attempts} ${practiceSummary.attempts === 1 ? "time" : "times"} · best ${Math.round(practiceSummary.bestScore)}% — pass mark is ${PRACTICE_PASS}%`}
+            </p>
+          )}
         </div>
 
         <Card>

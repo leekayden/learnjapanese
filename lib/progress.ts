@@ -94,13 +94,17 @@ export async function ensureLessonStarted(userId: string, lessonId: string) {
   })
 }
 
-/** Whether the learner has passed practice for a lesson. */
-export async function isLessonPracticed(userId: string, lessonId: string) {
+/** Practice record for a lesson: completion status, best score and attempt count. */
+export async function getLessonPracticeSummary(userId: string, lessonId: string) {
   const row = await prisma.lessonProgress.findUnique({
     where: { userId_lessonId: { userId, lessonId } },
-    select: { status: true },
+    select: { status: true, bestScore: true, attempts: true },
   })
-  return row?.status === "COMPLETED"
+  return {
+    status: row?.status ?? null,
+    bestScore: row?.bestScore ?? 0,
+    attempts: row?.attempts ?? 0,
+  }
 }
 
 /**

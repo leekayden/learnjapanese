@@ -2,6 +2,7 @@
 
 import { useMemo, useReducer, useState } from "react"
 import { useRouter } from "next/navigation"
+import Link from "next/link"
 import { Check, ChevronRight, RotateCcw, X } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -44,6 +45,9 @@ function labelOf(q: QuizQuestion, id: string): string {
 
 type Response = unknown
 
+/** Reported by runners so the finish screen can say whether the result persisted. */
+export type SaveOutcome = { saved: boolean; reason?: string }
+
 export function QuizPlayer({
   questions,
   title,
@@ -59,7 +63,7 @@ export function QuizPlayer({
 }: {
   questions: QuizQuestion[]
   title: string
-  onFinish: (score: number, responses: Record<string, Response>) => Promise<void>
+  onFinish: (score: number, responses: Record<string, Response>) => Promise<SaveOutcome | void>
   submitLabel?: string
   backHref?: string
   nextHref?: string
@@ -76,6 +80,7 @@ export function QuizPlayer({
   const [done, setDone] = useState(false)
   const [saving, setSaving] = useState(false)
   const [result, setResult] = useState<{ score: number } | null>(null)
+  const [saveOutcome, setSaveOutcome] = useState<SaveOutcome | null>(null)
   const [nonce, bumpNonce] = useReducer((x: number) => x + 1, 0)
 
   const q = questions[idx]!
@@ -114,7 +119,12 @@ export function QuizPlayer({
   async function finish() {
     setSaving(true)
     const score = scoreAttempt(questions, responses).score
-    await onFinish(score, responses)
+    try {
+      const outcome = await onFinish(score, responses)
+      setSaveOutcome(outcome ?? null)
+    } catch {
+      setSaveOutcome({ saved: false })
+    }
     setResult({ score })
     setDone(true)
     setSaving(false)
@@ -136,6 +146,7 @@ export function QuizPlayer({
     setChecked(false)
     setDone(false)
     setResult(null)
+    setSaveOutcome(null)
     onCheckedChange?.(false, false)
     bumpNonce()
   }
@@ -158,6 +169,19 @@ export function QuizPlayer({
             {passed ? passLabel : failLabel}
           </p>
           <p className="text-xs text-muted-foreground">Pass mark is {passMark}%</p>
+          {saveOutcome && (
+            <p className="text-xs text-muted-foreground">
+              {saveOutcome.saved ? (
+                "Progress saved."
+              ) : saveOutcome.reason === "unauthenticated" ? (
+                <>
+                  Not saved — <Link href="/login" className="underline">sign in</Link> to keep this result.
+                </>
+              ) : (
+                <>Couldn&apos;t save this result.</>
+              )}
+            </p>
+          )}
         </CardHeader>
         <CardFooter className="flex flex-wrap items-center justify-center gap-3">
           <Button variant="outline" onClick={retry}>
