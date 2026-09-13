@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { exampleSentences, hydrate, teachingUnit } from "@/lib/dictionary"
 import { posLabel } from "@/lib/jmdict-tags"
+import { PageCrumbs } from "@/components/page-crumbs"
 
 export const metadata = { title: "Word" }
 
@@ -20,6 +21,12 @@ export default async function WordPage({ params }: { params: Promise<{ id: strin
 
   return (
     <div className="space-y-6">
+      <PageCrumbs
+        items={[
+          { label: "Dictionary", href: "/dictionary" },
+          { label: display || word.romaji },
+        ]}
+      />
       <div className="flex items-center gap-3">
         <Jp jp={display} kana={word.kanaForms[0]?.text ?? ""} romaji={word.romaji} className="text-4xl font-bold" />
         <TtsButton text={word.kanaForms[0]?.text ?? display} className="size-9" />

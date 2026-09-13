@@ -6,6 +6,7 @@ import { StrokeKanji } from "@/components/stroke-kanji"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { prisma } from "@/lib/db"
+import { PageCrumbs } from "@/components/page-crumbs"
 
 export const metadata = { title: "Kanji" }
 
@@ -36,6 +37,12 @@ export default async function KanjiDetailPage({ params }: { params: Promise<{ ch
 
   return (
     <div className="space-y-6">
+      <PageCrumbs
+        items={[
+          { label: "Kanji", href: "/kanji" },
+          { label: decoded },
+        ]}
+      />
       <div className="flex items-center gap-4">
         <Jp jp={decoded} kana={decoded} className="text-6xl font-bold" />
         <div className="space-y-1">
